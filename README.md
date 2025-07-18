@@ -10,11 +10,7 @@ This is the official repository for the beta version of the open-source PES-demo
 
 * https://erwan-privat.fr/pes-demo/mesh-reader.html
 
-The user guide is available here:
-
-* https://srampinogroup.github.io/pes-demo-guide.html
-
-Feel free to open an issue if you found a bug.
+The user guide is available below. Feel free to open an issue if you found a bug.
 
 # User guide
 
