@@ -43,16 +43,13 @@ The user guide is available below. Feel free to open an issue if you found a bug
 
 # User guide
 
-> [!NOTE]
-> TODO this will be a complete feature description.
-
 I will use the term "native" when the project is launched from Godot, being on desktop or mobile (android only).
 I will refer to the "web" version when the project is accessed by browser, being from desktop or mobile browser.
 I will say "desktop" for mouse and keyboard controls, and "touch device" for phones and tablets independant of whereas the app is being accessed by browser or natively.
 Everything should be equivalent for native PC, native mobile, web PC and web mobile, but bugs might prove me wrong.
 
 > [!WARNING]
-> Right now the app does not work correctly on web export on macOS because of mouse capture issues. You can still run the app from source within the Godot editor.
+> Right now the web exported app does not work correctly on Safari because of mouse capture issues. Please use another browser.
 
 ## Main menu
 
