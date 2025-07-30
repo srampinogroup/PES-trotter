@@ -121,19 +121,26 @@ Here you have miscellaneous settings regarding controls. On touch devices, do no
 
 ## Exploration
 
-Once you press the Run/Resume button, after a little scene loading time, you will land on the PES. The initial control scheme will be
-in walk mode. That is you can move like in a FPS video game with `WASD`, sprint with `Shift` and jump with `Space`. You can toggle
-fly mode with `F11`, and control vertical movements with `Space` and `Ctrl`.
+Once you press the Run/Resume button, after a little scene loading time, you will land on the PES. Every keyboard actions I'll mention will also be
+actionable from the Actions menu at the bottom of the screen.
 
 ### Navigation
 
-Work in progress
+The initial control scheme will be in walk mode. That is you can move like in a FPS video game with `WASD`, sprint with `Shift` and jump with `Space`. You can toggle
+fly mode with `F11`, and control vertical movements with `Space` and `Ctrl`. On phone, you can use the left joystick to move and the right one to look.
+You can then fly up by looking up and going forwards, or by looking down and going backwards.
 
 ### Drawing a trajectory
+
+For drawing a trajectory by hand I recommand activating fly mode (`F11`) to take a view from the top. Toggle the profiling mode (`F10`) and draw onto the PES.
+Toggle the profiling mode again to leave drawing mode.
 
 Work in progress
 
 ### Computing minimum energy path
+
+Again I recommend taking some distance in fly mode. Toggle the minimum energy path (MEP) with `F9`. Click to set the starting point, click again on the end point.
+Press `F9` again to leave the mode. You can now create a trajectory from the MEP by selecting the corresponding action in the menu.
 
 Work in progress
 
