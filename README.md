@@ -16,6 +16,9 @@ The user guide is available below. Feel free to open an issue if you found a bug
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
+> [!TIP]
+> This guide is a work in progress and is frequently updated.
+
 ## Table of contents
 
 - [Quick start](#quick-start)
