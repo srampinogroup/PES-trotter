@@ -121,7 +121,9 @@ Here you have miscellaneous settings regarding controls. On touch devices, do no
 
 ## Exploration
 
-Work in progress
+Once you press the Run/Resume button, after a little scene loading time, you will land on the PES. The initial control scheme will be
+in walk mode. That is you can move like in a FPS video game with `WASD`, sprint with `Shift` and jump with `Space`. You can toggle
+fly mode with `F11`, and control vertical movements with `Space` and `Ctrl`.
 
 ### Navigation
 
