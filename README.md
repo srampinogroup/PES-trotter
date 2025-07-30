@@ -70,7 +70,7 @@ Here are the interacting elements:
 4. Load the selected demo PES. Fast-forward: you can then press Run (9) right after the load is finished and go the [Exploration](#exploration) section.
 5. Open a PES file from your computer/phone. Only works in native version.
 6. Load from a URL. Work on any platform.
-7. Load from clipboard (as if you dit `Ctrl+V`/`Cmd+V`). If the file is too big it might break.
+7. Load from clipboard (as if you did `Ctrl+V`/`Cmd+V`). This is not a stable feature, ff the file is too big it might crash the app.
 8. Upload from your device (web only).
 9. Run the loaded PES. You will not be able to press the button if no PES is loaded so if you can click it is safe to do so.
 
