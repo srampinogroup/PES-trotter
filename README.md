@@ -49,13 +49,13 @@ I will say "desktop" for mouse and keyboard controls, and "touch device" for pho
 Everything should be equivalent for native PC, native mobile, web PC and web mobile, but bugs might prove me wrong.
 
 > [!WARNING]
-> Right now the app does not work correctly on web export on iOS. It should still be launchable from iOS Godot app.
-> See issues [#130](https://github.com/srampinogroup/pes-trotter/issues/130)
-> and [#148](https://github.com/srampinogroup/pes-trotter/issues/148).
+> Right now the app does not work correctly on web export on macOS because of mouse capture issues. You can still run the app from source within the Godot editor.
 
 ## Main menu
 
-After the disclaimer, you arrive first on the main menu ("File loading" tab). This is the tab where you load the PES. The screenshot below shows both native and web UI elements, but you should only see half of those when you run the project depending on if you use the native or web version.
+You arrive first on the disclaimer page. You can then go to the main menu by selecting the "File loading" tab on top.
+This is the tab where you load the PES. The screenshot below shows both native and web UI elements, but you should only
+see half of those when you run the project depending on if you use the native or web version.
 
 <img width="807" height="540" alt="image" src="https://github.com/user-attachments/assets/c82dd044-5994-487e-bc55-e460f319f90c" />
 
