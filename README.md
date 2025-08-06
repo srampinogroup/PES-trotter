@@ -38,8 +38,39 @@ The user guide is available below. Feel free to open an issue if you found a bug
 
 # Quick start
 
-> [!NOTE]
-> TODO this will be a quick start tutorial without the details of every features.
+Here is how to quickly overview the features of the software.
+
+0. If it is the first time you launch the app, read the disclaimer and go to **File Loading** tab.
+1. Load one of the demo files available with the drop-down menu on the right of the first button.
+   * The glycine one will quickly load but is really small and uses internal degrees of freedom as coordinates.
+   * If unsure, use the `rrx_c2hp` or `lih2p_rrp_coords` PESs who demonstrates reactive scattering with three atoms.
+   * The `test_*` ones are for debugging purpose and do not represent any meaningful physical process.
+2. Press **Load demo** to load the PES.  
+3. After a few seconds of loading, press **Run**. This will also take a few seconds for bigger PES.
+4. Explore and navigate with `WASD` to explore the PES "by foot", showing in the corner the configuration of the molecule at the point you are standing.
+   On touch screen devices you have virtual joystick, on the left to move and on the right to look around.
+   All actions are accessible through the action menu at the bottom of the screen. For mouse users, you need to press `F12` to toggle mouse capture.
+   Exhaustive control map for PC is [at the end of this guide](#keyboard-and-mouse-controls).
+6. Use `F11` with keyboard, or **Toggle fly mode** in the action menu at the bottom to have the configuration of the molecule shown at the point you aim at,
+   like a laser pointer.
+7. In the action menu you can use **Activate drawing profile** to draw on the PES an energy profile.
+8. You can either watch or ride the trajectory you just draw with the action **Toggle trajectory ride**. Press again to exit this mode.
+   * If you are in walk mode, you will ride the trajectory and see the configuration updated from your position on the PES.
+   * If you are in fly mode, you will see a pointer arrow indicating the current PES coordinates corresponding to the displayed configuration.
+9. You can display points of interest, that is critical points (maxima, minima and saddle points). For that:
+   1. Go to the main menu with `ESC` or from the action menu.
+   2. In the settings tab, press **Compute critical points** under the minimap.
+   3. Press **Resume** to go back to the PES map.
+   4. You can press the newly displayed "anchors" to teleport to them and see the specific configuration at this point.
+   5. In the action menu there is a visibility toggle for these points, it is called **Show/hide anchors**.
+10. Finally there is a rough estimate of a minimum energy path (MEP) available. That, you can compute the minimum energy path a complex would take during e.g. a reaction.
+    1. First, enable the user interface to select the start and final points of the MEP with the action **Compute MEP**.
+    2. Click/tap on the surface where you want the MEP to start from.
+    3. Click/tap on the surface where you want the path to end.
+    4. You have now the MEP in green. You can toggle its visibility with the **Show/hide minimum energy path (MEP)** option.
+    5. Optionnally, you can create an energy profile from this MEP with the action **MEP to profile**. That way, you can use point 7. on the MEP.
+11. Enjoy!
+   
 
 # User guide
 
@@ -53,7 +84,7 @@ Everything should be equivalent for native PC, native mobile, web PC and web mob
 
 ## Main menu
 
-You arrive first on the disclaimer page. You can then go to the main menu by selecting the "File loading" tab on top.
+You arrive first on the disclaimer page. You can then go to the main menu by selecting the **File loading** tab on top.
 This is the tab where you load the PES. The screenshot below shows both native and web UI elements, but you should only
 see half of those when you run the project depending on if you use the native or web version.
 
