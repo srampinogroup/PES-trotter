@@ -26,7 +26,7 @@ found a bug.
 [![License: CC BY
 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-> [!TIP] This guide is a work in progress and is frequently updated.
+> [!NOTE] This guide is a work in progress and is frequently updated.
 
 ## Table of contents
 
@@ -121,9 +121,11 @@ whereas the app is being accessed by browser or natively.  Everything
 should be equivalent for native PC, native mobile, web PC and web
 mobile, but bugs might prove me wrong.
 
-> [!WARNING] Right now the web exported app does not work correctly
+
+> [!TIP] Right now the web exported app does not work correctly
 > on Safari because of mouse capture issues. Please use another
 > browser.
+
 
 ## Main menu
 
