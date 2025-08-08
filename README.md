@@ -121,8 +121,7 @@ whereas the app is being accessed by browser or natively.  Everything
 should be equivalent for native PC, native mobile, web PC and web
 mobile, but bugs might prove me wrong.
 
-
-> [!TIP] Right now the web exported app does not work correctly
+> [!WARNING] Right now the web exported app does not work correctly
 > on Safari because of mouse capture issues. Please use another
 > browser.
 
