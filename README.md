@@ -106,8 +106,8 @@ would take during e.g. a reaction.
     4. You have now the MEP in green. You can toggle its visibility
     with the **Show/hide minimum energy path (MEP)** option.
     5. Optionnally, you can create an energy profile from this MEP
-    with the action **MEP to profile**. That way, you can use point
-    7. on the MEP.
+    with the action **MEP to profile**. That way, you can use point 7.
+    on the MEP.
 11. Enjoy!
    
 
