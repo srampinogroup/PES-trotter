@@ -89,7 +89,7 @@ action **Toggle trajectory ride**. Press again to exit this mode.
 9. You can display points of interest, that is critical points
 (maxima, minima and saddle points). For that:
    1. Go to the main menu with `ESC` or from the action menu.
-   2. In the settings tab, press **Compute critical points** under
+   2. In the **Settings** tab, press **Compute critical points** under
    the minimap.
    3. Press **Resume** to go back to the PES map.
    4. You can press the newly displayed "anchors" to teleport to them
