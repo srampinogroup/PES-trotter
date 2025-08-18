@@ -284,6 +284,8 @@ key       | mode         | description
 `Ctrl`    | fly          | fly down
 `A`       |              | rotate molecule anti-clockwise
 `E`       |              | rotate molecule clockwise
+`+`       |              | on all axes, scale map up (PC only)
+`-`       |              | on all axes, scale map down (PC only)
 `LMB`     | on molecule  | drag to rotate molecule
 `RMB`     |              | drag to rotate molecule (still working?)
 `Alt+LMB` |              | drag to rotate molecule (still working?)
