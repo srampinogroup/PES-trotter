@@ -60,7 +60,12 @@ the right of the first button.
      demonstrates reactive scattering with three atoms.
    * The `test_*` ones are for debugging purpose and do not represent
      any meaningful physical process.
-2. Press **Load demo** to load the PES.  
+2. Press **Load demo** to load the PES.
+
+> [!WARNING]
+> For now, loading a demo file will erase previously entered settings
+> and replace them by the settings shipped with the demo PES.
+
 3. After a few seconds of loading, press **Run**. This will also take
 a few seconds for bigger PES.
 4. Explore and navigate with `WASD` to explore the PES "by foot",
