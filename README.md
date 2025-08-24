@@ -270,31 +270,39 @@ be `ZQSD`.  `LMB`, `MMB`, `RMB`, `MBn` are respectively left, right,
 middle and n-th mouse button.  `Wheel` is mouse wheel or touchpad
 scroll.
 
-key       | mode         | description
-----------|--------------|------------
-`W`       |              | move forwards
-`S`       |              | move backwards
-`A`       |              | straff left
-`D`       |              | straff right
-`Space`   |              | jump
-`Shift`   |              | accelerate all movements
-`F12`     |              | toggle mouse capture (buggy on web)
-`F11`     |              | toggle fly mode
-`Space`   | fly          | fly up
-`Ctrl`    | fly          | fly down
-`A`       |              | rotate molecule anti-clockwise
-`E`       |              | rotate molecule clockwise
-`+`       |              | on all axes, scale map up (PC only)
-`-`       |              | on all axes, scale map down (PC only)
-`LMB`     | on molecule  | drag to rotate molecule
-`RMB`     |              | drag to rotate molecule (still working?)
-`Alt+LMB` |              | drag to rotate molecule (still working?)
-`Wheel`   |              | zoom of the molecule
-`F10`     |              | toggle profiling and mouse capture
-`LMB`     | profiling    | drag to draw profile
-`RMB`     | profiling    | erase profile
-`K`       |              | save profile to file
-`L`       |              | load profile from file
-`ESC`     |              | open menu, resume from menu
+key         | mode         | description
+------------|--------------|------------
+`W`         |              | move forwards
+`S`         |              | move backwards
+`A`         |              | straff left
+`D`         |              | straff right
+`Space`     |              | jump
+`Shift`     |              | accelerate all movements
+`F12`       |              | toggle mouse capture (buggy on web)
+`F11`       |              | toggle fly mode
+`Space`     | fly          | fly up
+`Ctrl`      | fly          | fly down
+`A`         |              | rotate molecule anti-clockwise
+`E`         |              | rotate molecule clockwise
+`+`         |              | on all axes, scale map up (PC only)
+`-`         |              | on all axes, scale map down (PC only)
+`LMB`       | on molecule  | drag to rotate molecule
+`RMB`       |              | drag to rotate molecule (still working?)
+`Alt+LMB`   |              | drag to rotate molecule (still working?)
+`Wheel`     |              | zoom of the molecule
+`F10`       |              | toggle profiling and mouse capture
+`LMB`       | profiling    | drag to draw profile
+`RMB`       | profiling    | erase profile
+`K`         |              | save profile to file
+`L`         |              | load profile from file
+`ESC`       |              | open menu, resume from menu
+
+# Alternate controls for touch devices
+
+Touch devices are straightforward since you have twin-sticks like
+controls with the virtual joysticks. The only difference is that in walk mode
+you have to double tap your screen to jump, and in fly mode aim for the
+sky/ground and go forward to fly up/down respectively. Every other action
+should have an UI touch equivalent in the **actions** menu.
 `F9`      |              | toggle minimum energy path mode and mouse capture
 `LMB`     | minimum path | select first point, then select second point
