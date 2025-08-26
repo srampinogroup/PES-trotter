@@ -16,7 +16,7 @@ This is the official repository for the beta version of the
 open-source PES-demo app. The full source code will be available
 soon. In the meantime, you can test the project via web at this page:
 
-* https://erwan-privat.fr/pes-demo/mesh-reader.html
+* https://srampinogroup.github.io/PES-demo
 
 The user guide is available below. Feel free to open an issue if you
 found a bug.
