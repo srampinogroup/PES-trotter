@@ -296,6 +296,8 @@ key         | mode         | description
 `K`         |              | save profile to file
 `L`         |              | load profile from file
 `ESC`       |              | open menu, resume from menu
+`F9`        |              | toggle minimum energy path mode and mouse capture
+`LMB`       | minimum path | select first point, then select second point
 
 # Alternate controls for touch devices
 
@@ -304,5 +306,3 @@ controls with the virtual joysticks. The only difference is that in walk mode
 you have to double tap your screen to jump, and in fly mode aim for the
 sky/ground and go forward to fly up/down respectively. Every other action
 should have an UI touch equivalent in the **actions** menu.
-`F9`      |              | toggle minimum energy path mode and mouse capture
-`LMB`     | minimum path | select first point, then select second point
