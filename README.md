@@ -6,8 +6,6 @@
  src="https://github.com/user-attachments/assets/32355cce-61df-4fb0-9f72-f0729553ba37" />
 </p>
 
-----------------
-
 ![GitHub License](https://img.shields.io/github/license/srampinogroup/PES-trotter)
 
 
