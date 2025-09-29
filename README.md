@@ -1,4 +1,4 @@
-# PES-demo
+# PES-trotter
 
 
 <p align="center">
