@@ -13,7 +13,7 @@
 ## Beta version is now live
 
 This is the official repository for the beta version of the
-open-source PES-demo app. The full source code will be available
+open-source PES-trotter app. The full source code will be available
 soon. In the meantime, you can test the project via web at this page:
 
 * https://srampinogroup.github.io/PES-trotter
@@ -183,9 +183,9 @@ for now one.  With (3) select the `rrx_c2hp.pes` demo and click (4)
 
 The settings tab can be accessed from the top tab bar (2).
 
-TODO screenshot
-
 #### Surface coordinates
+
+<img width="690" height="184" alt="image" src="https://github.com/user-attachments/assets/a3febfeb-4331-4ef7-bee7-a5b1bfa95155" />
 
 This section allows you to name the parameters of the PES. By default
 they are called `x` and `y` for the two coordinates of the file.  You
@@ -193,6 +193,8 @@ can also specify the range of these parameters so the correct value
 is displayed when exploring.
 
 #### World map
+
+<img width="688" height="664" alt="image" src="https://github.com/user-attachments/assets/7bc17147-b45c-4ec7-a9a4-79ba28176747" />
 
 This section contains the in-world scaling factors of the PES so you
 can change the world size.  You can also clip the PES by setting
@@ -207,23 +209,30 @@ energy so that the minimum is at `E = 0`.
 
 Next you have a sort of minimap, on which you can click to select the
 landing position when running the exploration.  On it will also be
-displayed the extrema and saddle points if you compute them with the
-button below.  Note that you can play with the threshold to eliminate
-false positive detected points on flat surface.  You have to press
-the button to have the points displayed in exploration mode.
+displayed the extrema and saddle points that you can hide or show
+with the check button next to the *Recompute* button. You can set the
+threshold to eliminate false positive or duplicated detected points,
+e.g. on flat surfaces.
 
 #### Trajectory playback
 
 This allows you to set the time it takes to play a trajectory or a
 ride on the energy profile (see profiling below).  You can also allow
 for the playback to loop back to initial position once it reaches the
-    end.
+end.
 
-#### Controls settings
+#### Controls settings and accessibility
 
 Here you have miscellaneous settings regarding controls. On touch
 devices, do not deactivate joysticks or you will be unable to
-navigate.
+navigate. You can also swap and rotate the hue of the whole app
+to help with protanopia or deuteranopia.
+
+#### Experimental features
+
+The *show bonds* option reduce the size of the atomic balls and display
+a varying-in-size cylinder to represent bonds. It should not be used
+for big molecules, as the visiblity and performance will be poor.
 
 ## Exploration
 
@@ -244,23 +253,31 @@ backwards.
 
 ### Drawing a trajectory
 
-For drawing a trajectory by hand I recommand activating fly mode
+For drawing a trajectory by hand we recommend activating fly mode
 (`F11`) to take a view from the top. Toggle the profiling mode
 and draw onto the PES. Toggle the profiling mode again to leave
 drawing mode.
 
-> [!NOTE]
-> Work in progress
-
 ### Computing minimum energy path
 
-Again I recommend taking some distance in fly mode. Toggle the
+Again we recommend taking some distance in fly mode. Toggle the
 minimum energy path (MEP) with `F9`. Click to set the starting point,
 click again on the end point.  Press `F9` again to leave the mode.
 You can now create a trajectory from the MEP by selecting the
 corresponding action in the menu.
 
-Work in progress
+### Playback of the trajectory
+
+Any profile can be played, either in "ride mode", that is you will
+automatically walk alongside the trajectory if in walk mode, or in
+"spectator mode", if you are in fly mode. A red arrow will be displayed
+following the trajectory.
+
+If the trajectory is loaded from a file however, the configuration will
+follow the one in the file and will not be the minimum configuration
+pre-computed with the PES. This will be made obvious by the display of
+the file name under the molecule and a change of the color of the support.
+
 
 # Keyboard and mouse controls
 
