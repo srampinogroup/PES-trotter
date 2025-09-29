@@ -2,7 +2,8 @@
 
 
 <p align="center">
- <img width="1135" height="423" alt="image" src="https://github.com/user-attachments/assets/32355cce-61df-4fb0-9f72-f0729553ba37" />
+ <img width="1135" height="423" alt="PES-trotter title image"
+ src="https://github.com/user-attachments/assets/32355cce-61df-4fb0-9f72-f0729553ba37" />
 </p>
 
 ----------------
@@ -141,9 +142,10 @@ where you load the PES. The screenshot below shows both native and
 web UI elements, but you should only see half of those when you run
 the project depending on if you use the native or web version.
 
-<img width="807" height="540" alt="image"
-src="https://github.com/user-attachments/assets/c82dd044-5994-487e-bc55-e460f319f90c"
-/>
+<p align="center">
+<img width="807" height="540" alt="main menu screenshot"
+src="https://github.com/user-attachments/assets/c82dd044-5994-487e-bc55-e460f319f90c" />
+</p>
 
 Here are the interacting elements:
 
@@ -185,7 +187,10 @@ The settings tab can be accessed from the top tab bar (2).
 
 #### Surface coordinates
 
-<img width="690" height="184" alt="image" src="https://github.com/user-attachments/assets/a3febfeb-4331-4ef7-bee7-a5b1bfa95155" />
+<p align="center">
+<img width="690" height="184" alt="surface coordinates settings screenshot"
+src="https://github.com/user-attachments/assets/a3febfeb-4331-4ef7-bee7-a5b1bfa95155" />
+</p>
 
 This section allows you to name the parameters of the PES. By default
 they are called `x` and `y` for the two coordinates of the file.  You
@@ -194,7 +199,10 @@ is displayed when exploring.
 
 #### World map
 
-<img width="688" height="664" alt="image" src="https://github.com/user-attachments/assets/7bc17147-b45c-4ec7-a9a4-79ba28176747" />
+<p align="center">
+<img width="688" height="664" alt="world map settings screenshot"
+src="https://github.com/user-attachments/assets/7bc17147-b45c-4ec7-a9a4-79ba28176747" />
+</p>
 
 This section contains the in-world scaling factors of the PES so you
 can change the world size.  You can also clip the PES by setting
