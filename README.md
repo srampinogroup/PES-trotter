@@ -8,6 +8,11 @@
 
 ![GitHub License](https://img.shields.io/github/license/srampinogroup/PES-trotter)
 
+PES-trotter is a mutli-plateform software designed to allow the
+exploration of Potential Energy Surfaces (PES). It aims at facilitating
+the exploration of the different features of a PES by allowing 3-D
+navigation, energy profiling, Minimum Energy Path (MEP) computation and
+trajectory playback.
 
 ## Beta version is now live
 
