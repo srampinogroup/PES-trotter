@@ -178,7 +178,7 @@ Not interactive elements include:
 
 Depending on the plateform you can either load from disk, load from
 URL, or upload as explained above. In any case, we'll use the demo
-for now one.  With (3) select the `rrx_c2hp.pes` demo and click (4)
+for now on.  With (3) select the `rrx_c2hp.pes` demo and click (4)
     to load the demo. After a few seconds (the progress bar is not
     working on web right now), the Run (9) button should be enabled.
     If you want you dive straight into navigation, skip the next
