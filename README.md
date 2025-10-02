@@ -164,7 +164,7 @@ it.
 version.
 6. Load from a URL. Work on any platform.
 7. Load from clipboard (as if you did `Ctrl+V`/`Cmd+V`). This is not
-a stable feature, ff the file is too big it might crash the app.
+a stable feature, if the file is too big it might crash the app.
 8. Upload from your device (web only).
 9. Run the loaded PES. You will not be able to press the button if no
 PES is loaded so if you can click it is safe to do so.
