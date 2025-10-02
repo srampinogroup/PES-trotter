@@ -4,14 +4,14 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1752427631|13398137041';
+const CACHE_VERSION = '1759431938|6019935375';
 /** @type {string} */
-const CACHE_PREFIX = 'mesh-reader-sw-cache-';
+const CACHE_PREFIX = 'PES-trotter-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
 /** @type {string} */
 const OFFLINE_URL = 'mesh-reader.offline.html';
 /** @type {boolean} */
-const ENSURE_CROSSORIGIN_ISOLATION_HEADERS = false;
+const ENSURE_CROSSORIGIN_ISOLATION_HEADERS = true;
 // Files that will be cached on load.
 /** @type {string[]} */
 const CACHED_FILES = ["mesh-reader.html","mesh-reader.js","mesh-reader.offline.html","mesh-reader.audio.worklet.js","mesh-reader.audio.position.worklet.js"];
