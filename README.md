@@ -60,15 +60,16 @@ and go to **File Loading** tab.
 the right of the first button.
    * The glycine one will quickly load but is really small and uses
      internal degrees of freedom as coordinates.
-   * If unsure, use the `rrx_c2hp` or `lih2p_rrp_coords` PESs who
+   * If unsure, use the `rrx_c2hp_small.pes` or `lih2p_rrp_coords_small.pes` PESs who
      demonstrates reactive scattering with three atoms.
    * The `test_*` ones are for debugging purpose and do not represent
-     any meaningful physical process.
+     any meaningful physical process. They are not in the web export.
 2. Press **Load demo** to load the PES.
 
-> [!WARNING]
-> For now, loading a demo file will erase previously entered settings
-> and replace them by the settings shipped with the demo PES.
+> [!NOTE]
+> Loading a demo file will erase previously entered settings
+> and replace them by the presets shipped with the demo PES.
+> This will not alter non PES-specific settings.
 
 3. After a few seconds of loading, press **Run**. This will also take
 a few seconds for bigger PES.
@@ -178,7 +179,7 @@ Not interactive elements include:
 
 Depending on the plateform you can either load from disk, load from
 URL, or upload as explained above. In any case, we'll use the demo
-for now on.  With (3) select the `rrx_c2hp.pes` demo and click (4)
+for now on.  With (3) select the `rrx_c2hp_small.pes` demo and click (4)
     to load the demo. After a few seconds (the progress bar is not
     working on web right now), the Run (9) button should be enabled.
     If you want you dive straight into navigation, skip the next
