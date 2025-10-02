@@ -28,7 +28,7 @@ found a bug.
 # User guide
 
 [![license: CC BY
-4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+4.0](https://img.shields.io/badge/license-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 > [!NOTE]
 > This guide is a work in progress and is frequently updated.
