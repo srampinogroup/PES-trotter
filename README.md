@@ -319,14 +319,15 @@ key          | mode         | description
 `RMB`        |              | drag to rotate molecule (still working?)
 `Alt+LMB`    |              | drag to rotate molecule (still working?)
 `Wheel`      |              | zoom of the molecule
-`F10`        |              | toggle profiling and mouse capture
+`F10`/`P`    |              | toggle profiling and mouse capture
 `LMB`        | profiling    | drag to draw profile
 `RMB`        | profiling    | erase profile
 `K`          |              | save profile to file
 `L`          |              | load profile from file
 `ESC`/`M`/`,`|              | open menu, resume from menu
-`F9`         |              | toggle minimum energy path mode and mouse capture
+`F9`/`O`     |              | toggle minimum energy path mode and mouse capture
 `LMB`        | minimum path | select first point, then select second point
+`Ctrl+F`     |              | force instant quit (safe)
 
 # Alternate controls for touch devices
 
