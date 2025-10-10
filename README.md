@@ -324,7 +324,7 @@ key          | mode         | description
 `RMB`        | profiling    | erase profile
 `K`          |              | save profile to file
 `L`          |              | load profile from file
-`ESC`        |              | open menu, resume from menu
+`ESC`/`M`/`,`|              | open menu, resume from menu
 `F9`         |              | toggle minimum energy path mode and mouse capture
 `LMB`        | minimum path | select first point, then select second point
 
