@@ -308,7 +308,7 @@ key          | mode         | description
 `Space`      |              | jump
 `Shift`      |              | accelerate all movements
 `F12`/`Enter`|              | toggle mouse capture (prefer `Enter` on web on laptop)
-`F11`/`F`    |              | toggle fly mode
+`F`          |              | toggle fly mode
 `Space`      | fly          | fly up
 `Ctrl`       | fly          | fly down
 `A`          |              | rotate molecule anti-clockwise
@@ -319,13 +319,13 @@ key          | mode         | description
 `RMB`        |              | drag to rotate molecule (still working?)
 `Alt+LMB`    |              | drag to rotate molecule (still working?)
 `Wheel`      |              | zoom of the molecule
-`F10`/`P`    |              | toggle profiling and mouse capture
+`P`          |              | toggle profiling and mouse capture
 `LMB`        | profiling    | drag to draw profile
 `RMB`        | profiling    | erase profile
 `K`          |              | save profile to file
 `L`          |              | load profile from file
 `ESC`/`M`/`,`|              | open menu, resume from menu
-`F9`/`O`     |              | toggle minimum energy path mode and mouse capture
+`O`          |              | toggle minimum energy path mode and mouse capture
 `LMB`        | minimum path | select first point, then select second point
 `Ctrl+F`     |              | force instant quit (safe)
 
