@@ -301,10 +301,10 @@ scroll.
 
 key          | mode         | description
 -------------|--------------|------------
-`W`/`Up`     |              | move forwards
-`S`/`Down`   |              | move backwards
-`A`/`Left`   |              | straff left
-`D`/`Right`  |              | straff right
+`W`          |              | move forwards
+`S`          |              | move backwards
+`A`          |              | straff left
+`D`          |              | straff right
 `Space`      |              | jump
 `Shift`      |              | accelerate all movements
 `F12`/`Enter`|              | toggle mouse capture (prefer `Enter` on web on laptop)
@@ -316,14 +316,14 @@ key          | mode         | description
 `+`          |              | on all axes, scale map up (PC only)
 `-`          |              | on all axes, scale map down (PC only)
 `LMB`        | on molecule  | drag to rotate molecule
-`RMB`        |              | drag to rotate molecule (still working?)
-`Alt+LMB`    |              | drag to rotate molecule (still working?)
 `Wheel`      |              | zoom of the molecule
 `P`          |              | toggle profiling and mouse capture
 `LMB`        | profiling    | drag to draw profile
 `RMB`        | profiling    | erase profile
 `K`          |              | save profile to file
 `L`          |              | load profile from file
+`U`          |              | slow down trajectory playback
+`I`          |              | speed up trajectory playback
 `ESC`/`M`/`,`|              | open menu, resume from menu
 `O`          |              | toggle minimum energy path mode and mouse capture
 `LMB`        | minimum path | select first point, then select second point
@@ -335,4 +335,4 @@ Touch devices are straightforward since you have twin-sticks like
 controls with the virtual joysticks. The only difference is that in walk mode
 you have to double tap your screen to jump, and in fly mode aim for the
 sky/ground and go forward to fly up/down respectively. Every other action
-should have an UI touch equivalent in the **actions** menu.
+have a UI touch equivalent in the **actions** menu.
