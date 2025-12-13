@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0vhkbwf0axmq"]
+
+[ext_resource type="Script" uid="uid://b4r723a7k4sp" path="res://scripts/SimpleSphere.gd" id="1_14edh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_14edh"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_aci3b"]
+material = SubResource("StandardMaterial3D_14edh")
+radial_segments = 16
+rings = 8
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_14edh"]
+points = PackedVector3Array(0.0679676, -0.424828, -0.235399, 0.0375725, 0.10623, 0.477859, -0.0382459, 0.1062, 0.477726, 0.022417, 0.394855, -0.296393, -0.477812, -0.10607, -0.0381008, 0.480157, 0.0914529, 0.0530006, 0.0679958, -0.37945, 0.310838, -0.0838538, 0.455804, 0.174281, 0.0529254, -0.0913343, -0.480217, -0.308811, 0.25575, -0.293771, -0.432435, 0.0909069, 0.219406, 0.446063, -0.105813, -0.189429, -0.249236, -0.37705, 0.203247, -0.293701, -0.255782, -0.308827, 0.386633, -0.257929, 0.174108, 0.296042, 0.379935, 0.128829, 0.308425, 0.256014, -0.293965, 0.310751, 0.0909883, 0.371407, -0.189489, -0.105887, 0.445989, -0.311081, 0.379038, -0.0685073, 0.144923, -0.474149, 0.00730413, -0.205365, -0.440345, -0.0837888, 0.188871, -0.105977, 0.446365, -0.129802, 0.0913364, -0.464915, -0.293998, 0.255946, 0.308465, -0.446224, 0.105783, -0.189207, 0.0992819, 0.475112, -0.0998669, 0.0679955, 0.379449, 0.310836, 0.308423, -0.256012, -0.293963, 0.188666, 0.105861, -0.446552, -0.403696, -0.24351, 0.159467, 0.295891, -0.379741, -0.129342)
+
+[node name="SimpleSphere" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_14edh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+mesh = SubResource("SphereMesh_aci3b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_14edh")

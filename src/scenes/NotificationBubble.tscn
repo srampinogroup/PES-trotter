@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://62b0d37mo04v"]
+
+[ext_resource type="Script" uid="uid://vyeo4mfk5puc" path="res://scripts/NotificationBubble.gd" id="1_crb4c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qyyw"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="NotificationBubble" type="Label"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_8qyyw")
+text = "Notification"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_crb4c")

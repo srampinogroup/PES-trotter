@@ -1,0 +1,5 @@
+[gd_resource type="Theme" format=3 uid="uid://cbb7usd6iskrc"]
+
+[resource]
+default_font_size = 16
+HeaderMedium/font_sizes/font_size = 24

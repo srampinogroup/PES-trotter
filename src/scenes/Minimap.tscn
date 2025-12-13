@@ -1,0 +1,167 @@
+[gd_scene load_steps=11 format=3 uid="uid://kergsarc0yic"]
+
+[ext_resource type="Script" uid="uid://cni2bj5iya8xf" path="res://scripts/Minimap.gd" id="1_cvo86"]
+[ext_resource type="Texture2D" uid="uid://r7wiprop7c6u" path="res://assets/icons/crosshair.png" id="1_yfyr0"]
+[ext_resource type="Script" uid="uid://cray6iaefmby3" path="res://scripts/MapRect.gd" id="2_0pgu0"]
+[ext_resource type="Texture2D" uid="uid://dkra6smbaet3l" path="res://assets/icons/up-arrow.svg" id="2_uhfg6"]
+[ext_resource type="Texture2D" uid="uid://dj60ub4js4ws5" path="res://assets/icons/arrow-right.svg" id="5_4iigp"]
+[ext_resource type="Gradient" uid="uid://diquexvk18mkg" path="res://assets/terrain/terrain_gradient.tres" id="6_g8ca0"]
+[ext_resource type="Gradient" uid="uid://dequw8dcrvann" path="res://assets/terrain/ocean_gradient.tres" id="7_l6gx0"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jujhc"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yef4h"]
+gradient = ExtResource("6_g8ca0")
+width = 200
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_y05n1"]
+gradient = ExtResource("7_l6gx0")
+
+[node name="Minimap" type="GridContainer"]
+offset_right = 219.0
+offset_bottom = 227.0
+columns = 2
+script = ExtResource("1_cvo86")
+
+[node name="YBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="UpArrow" type="TextureRect" parent="YBox"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_uhfg6")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="YLabel" type="Label" parent="YBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "y"
+
+[node name="MapRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("PlaceholderTexture2D_jujhc")
+expand_mode = 1
+script = ExtResource("2_0pgu0")
+
+[node name="PosMarker" type="TextureRect" parent="MapRect"]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yfyr0")
+
+[node name="CoordsLabel" type="Label" parent="MapRect"]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "0.0, 0.0"
+
+[node name="CritsContainer" type="Control" parent="MapRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+mouse_force_pass_scroll_events = false
+
+[node name="Spacer" type="Control" parent="."]
+layout_mode = 2
+
+[node name="XBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="XLabel" type="Label" parent="XBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "x"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="XBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 4
+
+[node name="RightArrow" type="TextureRect" parent="XBox/MarginContainer"]
+custom_minimum_size = Vector2(12, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("5_4iigp")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="PosSpacer" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PosContainer" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MinPosLabel" type="Label" parent="PosContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = " +0.00"
+
+[node name="PosTextureRect" type="TextureRect" parent="PosContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("GradientTexture1D_yef4h")
+
+[node name="MaxPosLabel" type="Label" parent="PosContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "+1.00"
+
+[node name="NegSpacer" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="NegContainer" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MinNegLabel" type="Label" parent="NegContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "-1.00"
+
+[node name="PosTextureRect" type="TextureRect" parent="NegContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("GradientTexture1D_y05n1")
+flip_h = true
+
+[node name="MaxNegLabel" type="Label" parent="NegContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "-0.00"

@@ -1,0 +1,151 @@
+[gd_scene load_steps=10 format=3 uid="uid://cacm85fn476v3"]
+
+[ext_resource type="Script" uid="uid://dy2k3rj6sa3n4" path="res://scripts/MolecularViewport.gd" id="1_113g0"]
+[ext_resource type="Script" uid="uid://dqdvly27oj0uo" path="res://scripts/ArrowFrame.gd" id="2_113g0"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_113g0"]
+
+[sub_resource type="Environment" id="Environment_h7kkj"]
+background_mode = 2
+ambient_light_source = 3
+ambient_light_color = Color(0.52, 0.52, 0.52, 1)
+
+[sub_resource type="World3D" id="World3D_cep05"]
+environment = SubResource("Environment_h7kkj")
+camera_attributes = SubResource("CameraAttributesPractical_113g0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dv8b7"]
+albedo_color = Color(0.111197, 0.111197, 0.111197, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_l5ahi"]
+text = "x"
+font_size = 40
+depth = 0.02
+
+[sub_resource type="TextMesh" id="TextMesh_kks1g"]
+text = "y"
+font_size = 40
+depth = 0.02
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_113g0"]
+
+[node name="MoleculeViewport" type="SubViewport"]
+own_world_3d = true
+world_3d = SubResource("World3D_cep05")
+transparent_bg = true
+handle_input_locally = false
+msaa_3d = 2
+screen_space_aa = 1
+size = Vector2i(300, 300)
+render_target_update_mode = 4
+script = ExtResource("1_113g0")
+
+[node name="Pivot" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Camera3D" type="Camera3D" parent="Pivot"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.694658, 0.71934, 0, -0.71934, 0.694658, 0, 3, 5)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.99749, 0)
+shadow_enabled = true
+directional_shadow_mode = 1
+
+[node name="Plate" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+
+[node name="ArrowFrame" type="Node3D" parent="Plate"]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -2, 1, 2)
+script = ExtResource("2_113g0")
+override_material = SubResource("StandardMaterial3D_dv8b7")
+
+[node name="ZArrow" type="Node3D" parent="Plate/ArrowFrame"]
+transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 0, 0, 0)
+
+[node name="ZCylinder" type="CSGCylinder3D" parent="Plate/ArrowFrame/ZArrow"]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 1, 0)
+sides = 12
+
+[node name="ZCone" type="CSGCylinder3D" parent="Plate/ArrowFrame/ZArrow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.09245, 0)
+radius = 0.1
+height = 0.5
+cone = true
+
+[node name="ZText" type="MeshInstance3D" parent="Plate/ArrowFrame/ZArrow"]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.405, 0.99, 0)
+mesh = SubResource("TextMesh_l5ahi")
+
+[node name="XArrow" type="Node3D" parent="Plate/ArrowFrame"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0, 0)
+
+[node name="XCylinder" type="CSGCylinder3D" parent="Plate/ArrowFrame/XArrow"]
+transform = Transform3D(0.1, 0, -1.32349e-23, 0, 1, 8.35187e-24, -1.32349e-23, 8.35187e-23, 0.1, 0, 1, 8.35187e-23)
+sides = 12
+
+[node name="XCone" type="CSGCylinder3D" parent="Plate/ArrowFrame/XArrow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.09245, 0)
+radius = 0.1
+height = 0.5
+cone = true
+
+[node name="XText" type="MeshInstance3D" parent="Plate/ArrowFrame/XArrow"]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, 1, -3.82137e-15, -1, -4.37114e-08, -8.74228e-08, -8.74228e-08, 2.32934e-21, 1, -0.422, 0.99, 0)
+mesh = SubResource("TextMesh_kks1g")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Plate/ArrowFrame"]
+transform = Transform3D(-1, 4.37114e-08, -1.91069e-15, 0, -4.37114e-08, -1, -4.37114e-08, -1, 4.37114e-08, 0, 0, 0)
+radius = 0.05
+rings = 8
+
+[node name="PlateMesh" type="CSGCylinder3D" parent="Plate"]
+unique_name_in_owner = true
+radius = 3.39551
+sides = 32
+material = SubResource("StandardMaterial3D_113g0")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Slider" type="VSlider" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 240.0
+offset_right = 256.0
+offset_bottom = 240.0
+grow_horizontal = 0
+grow_vertical = 2
+focus_mode = 0
+min_value = 0.01
+max_value = 3.0
+step = -1.0
+value = 1.0
+
+[node name="TrajectoryLabel" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = 230.0
+offset_right = 280.0
+offset_bottom = 254.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+text_overrun_behavior = 3

@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b5whys8giy6b"]
+
+[ext_resource type="Shader" uid="uid://dltxyly2vk5u7" path="res://assets/post_process/hueshift.gdshader" id="1_7ybdv"]
+
+[resource]
+shader = ExtResource("1_7ybdv")
+shader_parameter/rotate_hue = false
+shader_parameter/swap_hue = false

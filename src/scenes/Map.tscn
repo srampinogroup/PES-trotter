@@ -1,0 +1,540 @@
+[gd_scene load_steps=46 format=3 uid="uid://cjqhdwthqwq3p"]
+
+[ext_resource type="Script" uid="uid://wj2o26xrk7e7" path="res://assets/data_classes/UISounds.gd" id="1_qp73v"]
+[ext_resource type="Script" uid="uid://db5vl4rev05xx" path="res://scripts/Map.gd" id="2_r6fqx"]
+[ext_resource type="PackedScene" uid="uid://bffsndoh7trh0" path="res://scenes/ArrowFrame.tscn" id="3_ebnvh"]
+[ext_resource type="Material" uid="uid://b6ak7mkm3f3y6" path="res://assets/terrain/terrain_shader.tres" id="4_ai18e"]
+[ext_resource type="Script" uid="uid://dbpbpiq0jbkp" path="res://scripts/Anchors.gd" id="5_mfcyi"]
+[ext_resource type="PackedScene" uid="uid://d0vhkbwf0axmq" path="res://scenes/SimpleSphere.tscn" id="6_fkh5j"]
+[ext_resource type="Script" uid="uid://dcp1pkblr3uta" path="res://scripts/MinimumEnergyPath.gd" id="7_7lugc"]
+[ext_resource type="PackedScene" uid="uid://b65asf4vqjofq" path="res://scenes/PointingArrow.tscn" id="8_wvgon"]
+[ext_resource type="PackedScene" uid="uid://clcn7vw6ro5uy" path="res://scenes/TrajectoryPath.tscn" id="9_mn0e6"]
+[ext_resource type="Script" uid="uid://bgnvyiy5vm2gr" path="res://scripts/CollisionShape3d.gd" id="10_gw1t8"]
+[ext_resource type="PackedScene" uid="uid://c8vyp1o7la7t2" path="res://scenes/FPSPlayer.tscn" id="11_h2rd3"]
+[ext_resource type="PackedScene" uid="uid://dv87y5njjypfy" path="res://scenes/TouchLayer.tscn" id="13_kbcc3"]
+[ext_resource type="Script" uid="uid://vqcalo6wa22a" path="res://scripts/ConfigContainer.gd" id="14_t5w1d"]
+[ext_resource type="Script" uid="uid://iqswqypvyox8" path="res://scripts/ChartContainer.gd" id="15_ggwev"]
+[ext_resource type="PackedScene" uid="uid://dlwq4kmdb3bhs" path="res://addons/easy_charts/control_charts/chart.tscn" id="16_80dix"]
+[ext_resource type="PackedScene" uid="uid://62b0d37mo04v" path="res://scenes/NotificationBubble.tscn" id="17_lusii"]
+[ext_resource type="PackedScene" uid="uid://cacm85fn476v3" path="res://scenes/MolecularViewport.tscn" id="18_7cxgq"]
+[ext_resource type="Gradient" uid="uid://diquexvk18mkg" path="res://assets/terrain/terrain_gradient.tres" id="18_ebnvh"]
+[ext_resource type="Gradient" uid="uid://dequw8dcrvann" path="res://assets/terrain/ocean_gradient.tres" id="19_ai18e"]
+[ext_resource type="Script" uid="uid://bi87u40mda571" path="res://scripts/IconsContainer.gd" id="19_s80gd"]
+[ext_resource type="Texture2D" uid="uid://dvmktvuebhpdt" path="res://assets/icons/mep.svg" id="20_7uch2"]
+[ext_resource type="Texture2D" uid="uid://dqc46i51x55ls" path="res://assets/icons/chart.svg" id="21_0o5hb"]
+[ext_resource type="Texture2D" uid="uid://bhdw4eyiea14j" path="res://assets/icons/cursor.svg" id="22_vc5wd"]
+[ext_resource type="Texture2D" uid="uid://clntya4cdr3wb" path="res://assets/icons/fly.svg" id="23_u6tn1"]
+[ext_resource type="Texture2D" uid="uid://cjw8djfwxurv0" path="res://assets/icons/walk.svg" id="24_efj3x"]
+[ext_resource type="Material" uid="uid://b5whys8giy6b" path="res://assets/post_process/post_process_shader_mat.tres" id="25_i2qmu"]
+[ext_resource type="Script" uid="uid://brudy4171db6s" path="res://scripts/PostProcessing.gd" id="26_od5xy"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_71pa8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05x41"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wwcf"]
+albedo_color = Color(0, 0.779167, 0.85, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ooc2g"]
+material = SubResource("StandardMaterial3D_2wwcf")
+radius = 0.25
+height = 0.5
+radial_segments = 16
+rings = 8
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_05x41"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ooc2g"]
+albedo_color = Color(0.25, 1, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_2wwcf"]
+material = SubResource("StandardMaterial3D_ooc2g")
+radial_segments = 16
+rings = 8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6sq2s"]
+albedo_color = Color(1, 0, 0.716667, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_4v3wx"]
+material = SubResource("StandardMaterial3D_6sq2s")
+radial_segments = 16
+rings = 8
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_30iet"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_mkblt"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_6ek7f"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_4o3w1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e0an3"]
+sky_top_color = Color(0.273, 0.48425, 0.78, 1)
+ground_bottom_color = Color(0.305668, 0.262527, 0.212463, 1)
+
+[sub_resource type="Sky" id="Sky_p5pve"]
+sky_material = SubResource("ProceduralSkyMaterial_e0an3")
+
+[sub_resource type="Environment" id="Environment_urblq"]
+background_mode = 2
+sky = SubResource("Sky_p5pve")
+ambient_light_source = 3
+ambient_light_color = Color(0.734152, 0.502347, 0.318961, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mfcyi"]
+gradient = ExtResource("18_ebnvh")
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fkh5j"]
+gradient = ExtResource("19_ai18e")
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_qp73v")
+
+[node name="Map" type="StaticBody3D" parent="."]
+script = ExtResource("2_r6fqx")
+
+[node name="DebugMarker3D" type="Marker3D" parent="Map"]
+
+[node name="ArrowFrame" parent="Map/DebugMarker3D" instance=ExtResource("3_ebnvh")]
+unique_name_in_owner = true
+transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, -32, 0, -77)
+
+[node name="PointerSphere" type="MeshInstance3D" parent="Map/DebugMarker3D"]
+unique_name_in_owner = true
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("SphereMesh_71pa8")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_05x41")
+
+[node name="ProfilingTrace" type="Node3D" parent="Map/DebugMarker3D"]
+unique_name_in_owner = true
+visible = false
+
+[node name="SphereTemplate" type="MeshInstance3D" parent="Map/DebugMarker3D/ProfilingTrace"]
+unique_name_in_owner = true
+visible = false
+mesh = SubResource("SphereMesh_ooc2g")
+
+[node name="ShaderPlane" type="MeshInstance3D" parent="Map/DebugMarker3D"]
+unique_name_in_owner = true
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+visible = false
+mesh = SubResource("PlaneMesh_05x41")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("4_ai18e")
+
+[node name="Anchors" type="Node3D" parent="Map/DebugMarker3D"]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("5_mfcyi")
+
+[node name="AnchorTemplate" parent="Map/DebugMarker3D/Anchors" instance=ExtResource("6_fkh5j")]
+unique_name_in_owner = true
+visible = false
+
+[node name="MinimumEnergyPath" type="Node3D" parent="Map/DebugMarker3D"]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("7_7lugc")
+
+[node name="StartPointingArrow" parent="Map/DebugMarker3D/MinimumEnergyPath" instance=ExtResource("8_wvgon")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7818, 3.69248, -5.35891)
+visible = false
+
+[node name="EndPointingArrow" parent="Map/DebugMarker3D/MinimumEnergyPath" instance=ExtResource("8_wvgon")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.282, 3.692, -5.359)
+visible = false
+
+[node name="MEPTemplate" type="MeshInstance3D" parent="Map/DebugMarker3D/MinimumEnergyPath"]
+unique_name_in_owner = true
+visible = false
+mesh = SubResource("SphereMesh_2wwcf")
+
+[node name="ExtremityTemplate" type="MeshInstance3D" parent="Map/DebugMarker3D/MinimumEnergyPath"]
+unique_name_in_owner = true
+visible = false
+mesh = SubResource("SphereMesh_4v3wx")
+
+[node name="TrajectoryPath" parent="Map/DebugMarker3D" instance=ExtResource("9_mn0e6")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Walls" type="Node3D" parent="Map"]
+
+[node name="WallBottom" type="StaticBody3D" parent="Map/Walls"]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -10, 0, 0)
+collision_layer = 4
+collision_mask = 4
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Walls/WallBottom"]
+shape = SubResource("WorldBoundaryShape3D_30iet")
+
+[node name="WallTop" type="StaticBody3D" parent="Map/Walls"]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 10, 0, 0)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Walls/WallTop"]
+shape = SubResource("WorldBoundaryShape3D_mkblt")
+
+[node name="WallLeft" type="StaticBody3D" parent="Map/Walls"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -10)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Walls/WallLeft"]
+shape = SubResource("WorldBoundaryShape3D_6ek7f")
+
+[node name="WallRight" type="StaticBody3D" parent="Map/Walls"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 10)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Walls/WallRight"]
+shape = SubResource("WorldBoundaryShape3D_4o3w1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map"]
+unique_name_in_owner = true
+script = ExtResource("10_gw1t8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 0.830382, 0.557195, 0, -0.557195, 0.830382, -1.20855, 3.57485, 5.43928)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Map"]
+environment = SubResource("Environment_urblq")
+
+[node name="FPSPlayer" parent="Map" instance=ExtResource("11_h2rd3")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.04007, 0)
+collision_layer = 4
+collision_mask = 5
+wall_min_slide_angle = 1.553343
+floor_constant_speed = true
+floor_max_angle = 1.553343
+
+[node name="UIControl" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 649.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="TouchLayer" parent="UIControl" instance=ExtResource("13_kbcc3")]
+unique_name_in_owner = true
+
+[node name="MainContainer" type="MarginContainer" parent="UIControl"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="RootVBox" type="VBoxContainer" parent="UIControl/MainContainer"]
+layout_mode = 2
+
+[node name="TopContainer" type="HBoxContainer" parent="UIControl/MainContainer/RootVBox"]
+layout_mode = 2
+
+[node name="CollapseBtn" type="CheckButton" parent="UIControl/MainContainer/RootVBox/TopContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Show advanced"
+
+[node name="SpacerLeft" type="Control" parent="UIControl/MainContainer/RootVBox/TopContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NotificationBubble" parent="UIControl/MainContainer/RootVBox/TopContainer" instance=ExtResource("17_lusii")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text_overrun_behavior = 3
+visible_time = 2.5
+
+[node name="SpacerRight" type="Control" parent="UIControl/MainContainer/RootVBox/TopContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.33
+
+[node name="VersionLabel" type="Label" parent="UIControl/MainContainer/RootVBox/TopContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.470588)
+layout_mode = 2
+text = "vX.X.X"
+
+[node name="Spacer" type="Control" parent="UIControl/MainContainer/RootVBox"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ColorsContainer" type="VBoxContainer" parent="UIControl/MainContainer/RootVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PosColorsContainer" type="HBoxContainer" parent="UIControl/MainContainer/RootVBox/ColorsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MinPosLabel" type="Label" parent="UIControl/MainContainer/RootVBox/ColorsContainer/PosColorsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0.00"
+
+[node name="PosText" type="TextureRect" parent="UIControl/MainContainer/RootVBox/ColorsContainer/PosColorsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("GradientTexture1D_mfcyi")
+
+[node name="MaxPosLabel" type="Label" parent="UIControl/MainContainer/RootVBox/ColorsContainer/PosColorsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1.00 eV"
+
+[node name="NegColorsContainer" type="HBoxContainer" parent="UIControl/MainContainer/RootVBox/ColorsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MinNegLabel" type="Label" parent="UIControl/MainContainer/RootVBox/ColorsContainer/NegColorsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "-1.00"
+
+[node name="NegText" type="TextureRect" parent="UIControl/MainContainer/RootVBox/ColorsContainer/NegColorsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("GradientTexture1D_fkh5j")
+flip_h = true
+
+[node name="MaxNegLabel" type="Label" parent="UIControl/MainContainer/RootVBox/ColorsContainer/NegColorsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0.00 eV"
+
+[node name="SliderContainer" type="HBoxContainer" parent="UIControl/MainContainer/RootVBox"]
+unique_name_in_owner = true
+visible = false
+z_as_relative = false
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="PlayButton" type="Button" parent="UIControl/MainContainer/RootVBox/SliderContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "play"
+
+[node name="PauseButton" type="Button" parent="UIControl/MainContainer/RootVBox/SliderContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "pause"
+
+[node name="PlaySlider" type="HSlider" parent="UIControl/MainContainer/RootVBox/SliderContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.001
+
+[node name="BottomContainer" type="HBoxContainer" parent="UIControl/MainContainer/RootVBox"]
+layout_mode = 2
+
+[node name="SpacerLeft" type="Control" parent="UIControl/MainContainer/RootVBox/BottomContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MenuButton" type="Button" parent="UIControl/MainContainer/RootVBox/BottomContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Menu (ESC)"
+
+[node name="PanelContainer" type="PanelContainer" parent="UIControl/MainContainer/RootVBox/BottomContainer"]
+layout_mode = 2
+
+[node name="ActionMenuButton" type="MenuButton" parent="UIControl/MainContainer/RootVBox/BottomContainer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Actions
+"
+
+[node name="MouseKeyLabel" type="Label" parent="UIControl/MainContainer/RootVBox/BottomContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Enter/F12 to use mouse"
+
+[node name="SpacerRight" type="Control" parent="UIControl/MainContainer/RootVBox/BottomContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BottomSpacer" type="Control" parent="UIControl/MainContainer/RootVBox"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="ConfigContainer" type="MarginContainer" parent="UIControl"]
+unique_name_in_owner = true
+z_index = 10
+z_as_relative = false
+layout_mode = 1
+offset_top = 63.0
+offset_right = 340.0
+offset_bottom = 596.0
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_constants/margin_left = 15
+script = ExtResource("14_t5w1d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIControl/ConfigContainer"]
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+
+[node name="EnergyCoordsLabel" type="RichTextLabel" parent="UIControl/ConfigContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "X: 0
+Y: 0
+E: 0"
+fit_content = true
+scroll_active = false
+
+[node name="UIConsoleLabel" type="RichTextLabel" parent="UIControl/ConfigContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_active = false
+
+[node name="ChartContainer" type="PanelContainer" parent="UIControl"]
+unique_name_in_owner = true
+visible = false
+z_index = 20
+layout_mode = 1
+offset_right = 350.0
+offset_bottom = 350.0
+script = ExtResource("15_ggwev")
+
+[node name="Chart" parent="UIControl/ChartContainer" instance=ExtResource("16_80dix")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SmallChartButton" type="CheckButton" parent="UIControl/ChartContainer"]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_mode = 0
+text = "small"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="UIControl"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_bottom = 300.0
+grow_horizontal = 0
+
+[node name="MolecularViewport" parent="UIControl/SubViewportContainer" instance=ExtResource("18_7cxgq")]
+unique_name_in_owner = true
+msaa_3d = 1
+screen_space_aa = 0
+oversampling = false
+
+[node name="IconsContainer" type="MarginContainer" parent="UIControl"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 118.0
+offset_bottom = 34.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("19_s80gd")
+
+[node name="IconsBox" type="HBoxContainer" parent="UIControl/IconsContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="MepIcon" type="TextureRect" parent="UIControl/IconsContainer/IconsBox"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("20_7uch2")
+
+[node name="ChartIcon" type="TextureRect" parent="UIControl/IconsContainer/IconsBox"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("21_0o5hb")
+
+[node name="CursorIcon" type="TextureRect" parent="UIControl/IconsContainer/IconsBox"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("22_vc5wd")
+
+[node name="FlyIcon" type="TextureRect" parent="UIControl/IconsContainer/IconsBox"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("23_u6tn1")
+
+[node name="WalkIcon" type="TextureRect" parent="UIControl/IconsContainer/IconsBox"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("24_efj3x")
+
+[node name="SaveProfileDialog" type="FileDialog" parent="UIControl"]
+unique_name_in_owner = true
+initial_position = 4
+access = 2
+filters = PackedStringArray("*.xyz")
+use_native_dialog = true
+
+[node name="LoadProfileDialog" type="FileDialog" parent="UIControl"]
+unique_name_in_owner = true
+title = "Open a File"
+initial_position = 4
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.xyz")
+use_native_dialog = true
+
+[node name="PostProcessingLayer" type="ColorRect" parent="UIControl"]
+unique_name_in_owner = true
+material = ExtResource("25_i2qmu")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("26_od5xy")

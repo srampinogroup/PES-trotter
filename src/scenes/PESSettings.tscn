@@ -1,0 +1,415 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh7uft7vrd1ft"]
+
+[ext_resource type="Script" uid="uid://croi3ric3xggh" path="res://scripts/PESSettings.gd" id="1_enesv"]
+[ext_resource type="PackedScene" uid="uid://kergsarc0yic" path="res://scenes/Minimap.tscn" id="2_guc0a"]
+
+[node name="PES settings" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 799.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_enesv")
+metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+text = "All settings are automatically saved when the value is changed. Scientific notation \"1e-5\" and some expressions (\"2*PI\" for \"6.2831\") are accepted in text boxes. For example: \"sqrt(2 + PI**1.5)\" will compute \"2.7511\"."
+autowrap_mode = 2
+
+[node name="SurfaceCoordsLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Surface and atom coordinates"
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CoordsContainer" type="GridContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+columns = 4
+
+[node name="EmptyControl" type="Control" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+layout_mode = 2
+
+[node name="LabelName" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+layout_mode = 2
+text = "name/units"
+
+[node name="LabelMin" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+layout_mode = 2
+text = "min value"
+
+[node name="LabelMax" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+layout_mode = 2
+text = "max value"
+
+[node name="LabelX" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+layout_mode = 2
+text = "X coord"
+
+[node name="FieldXName" type="LineEdit" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "x"
+select_all_on_focus = true
+
+[node name="FieldXMin" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+step = -1.0
+allow_greater = true
+allow_lesser = true
+select_all_on_focus = true
+
+[node name="FieldXMax" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+step = -1.0
+value = 1.0
+allow_greater = true
+allow_lesser = true
+select_all_on_focus = true
+
+[node name="LabelY" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+layout_mode = 2
+text = "Y coord"
+
+[node name="FieldYName" type="LineEdit" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+text = "y"
+select_all_on_focus = true
+
+[node name="FieldYMin" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+step = -1.0
+allow_greater = true
+allow_lesser = true
+select_all_on_focus = true
+
+[node name="FieldYMax" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+step = -1.0
+value = 1.0
+allow_greater = true
+allow_lesser = true
+select_all_on_focus = true
+
+[node name="EnergyLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+layout_mode = 2
+text = "Energy"
+
+[node name="EnergyUnitsBox" type="LineEdit" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Ha"
+placeholder_text = "units"
+
+[node name="MinEnergyBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+step = 0.0
+allow_greater = true
+allow_lesser = true
+
+[node name="MaxEnergyBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+step = 0.0
+value = 1.0
+allow_greater = true
+allow_lesser = true
+
+[node name="PositionUnitContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PositionUnitLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/PositionUnitContainer"]
+layout_mode = 2
+text = "Atom positions unit	 factor"
+
+[node name="PositionUnitBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/PositionUnitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+step = 0.1
+value = 1.0
+allow_greater = true
+allow_lesser = true
+prefix = "1 unit ="
+suffix = "Å"
+
+[node name="WorldLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "World map"
+
+[node name="WorldSeparator" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GlobalScaleContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/GlobalScaleContainer"]
+layout_mode = 2
+text = "Global scale"
+
+[node name="GlobalScaleBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/GlobalScaleContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 0.01
+step = 0.01
+value = 1.0
+select_all_on_focus = true
+
+[node name="ScaleGridContainer" type="GridContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="LabelScaleZ" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/ScaleGridContainer"]
+layout_mode = 2
+text = "X scale (Z in world)"
+
+[node name="LabelScaleX" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/ScaleGridContainer"]
+layout_mode = 2
+text = "Y scale (X in world)"
+
+[node name="LabelScaleY" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/ScaleGridContainer"]
+layout_mode = 2
+text = "height (Y in world)"
+
+[node name="FieldScaleZ" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/ScaleGridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.01
+max_value = 1000.0
+step = 0.01
+value = 1.0
+update_on_text_changed = true
+select_all_on_focus = true
+
+[node name="FieldScaleX" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/ScaleGridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1000.0
+step = 0.01
+value = 1.0
+update_on_text_changed = true
+select_all_on_focus = true
+
+[node name="FieldScaleY" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/ScaleGridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.01
+max_value = 1000.0
+step = 0.01
+value = 1.0
+select_all_on_focus = true
+
+[node name="IsoContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="IsoCheck" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer/IsoContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Display ISO lines"
+
+[node name="IsoLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/IsoContainer"]
+layout_mode = 2
+text = " every"
+
+[node name="IsoBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/IsoContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 0.001
+max_value = 1000.0
+step = -1.0
+value = 1.0
+allow_greater = true
+editable = false
+suffix = "unit"
+
+[node name="WeightContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+tooltip_text = "Energy to A* weight function. Use 'E' as variable name. Note that the minimum energy E is always shifted to be 0."
+
+[node name="EtoWLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/WeightContainer"]
+layout_mode = 2
+text = "A* weight: w(E) ="
+
+[node name="EtoWBox" type="LineEdit" parent="ScrollContainer/MarginContainer/VBoxContainer/WeightContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "(E + 1)**2"
+
+[node name="EtoWResLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/WeightContainer"]
+layout_mode = 2
+text = "e.g. w(0.8) ="
+
+[node name="EtoWResult" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/WeightContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "3.24"
+
+[node name="EtoWResetButton" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer/WeightContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "reset"
+
+[node name="InitPosLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Position on map"
+
+[node name="MinimapContainer" type="CenterContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer"]
+layout_mode = 2
+
+[node name="Minimap" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer" instance=ExtResource("2_guc0a")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="EpsContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer/EpsContainer"]
+layout_mode = 2
+text = "threshold (abs value):"
+
+[node name="EpsilonBox" type="LineEdit" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer/EpsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1e-5"
+
+[node name="EpsilonLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0.00001"
+
+[node name="MiniBtnHBox" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ComputeCriticalButton" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer/MiniBtnHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Recompute critical points"
+
+[node name="ShowCritsChk" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer/MiniBtnHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "show"
+
+[node name="TilingLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Tiling"
+
+[node name="TilingSeparator" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TilingDescription" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+text = "These UI settings allow for proper display of PES parameters when using a tiled PES. A tiled PES can be generated with the scripts present in the tools folder. For a 3x1 tiled PES that have X coordinate going from 0 to 360 for example, setting the X number of tiles to 3 will multiply the above mentioned 360 in the X coord max value by 3, and use X modulo max when displaying coords. We suppose minima to be 0."
+autowrap_mode = 2
+
+[node name="XTilesContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="XTilesLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/XTilesContainer"]
+layout_mode = 2
+text = "X number of tiles"
+
+[node name="XTilesBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/XTilesContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+value = 1.0
+rounded = true
+
+[node name="YTilesContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="YTilesLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/YTilesContainer"]
+layout_mode = 2
+text = "Y number of tiles"
+
+[node name="YTilesBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/YTilesContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+value = 1.0
+rounded = true
+
+[node name="ImportExportLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Import/export settings"
+
+[node name="ImportExportSep" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ImportBtn" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Import .ini ..."
+
+[node name="ExportBtn" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Export .ini ..."
+
+[node name="LogLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ImportFileDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Open a File"
+file_mode = 0
+access = 2
+use_native_dialog = true
+
+[node name="ExportFileDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+access = 2
+use_native_dialog = true

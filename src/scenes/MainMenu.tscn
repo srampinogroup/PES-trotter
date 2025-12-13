@@ -1,0 +1,211 @@
+[gd_scene load_steps=8 format=3 uid="uid://br2m66dhim41b"]
+
+[ext_resource type="Script" uid="uid://djpu3oum171dc" path="res://scripts/MainMenu.gd" id="1_826wr"]
+[ext_resource type="Script" uid="uid://dhk2hemc30agt" path="res://scripts/OptionButton.gd" id="2_ucygd"]
+[ext_resource type="PackedScene" uid="uid://bh7uft7vrd1ft" path="res://scenes/PESSettings.tscn" id="3_mipys"]
+[ext_resource type="PackedScene" uid="uid://p7sivjhqpria" path="res://scenes/Credits.tscn" id="4_8a8k8"]
+[ext_resource type="PackedScene" uid="uid://bmyioq4hh7u4j" path="res://scenes/AppSettings.tscn" id="4_ucygd"]
+[ext_resource type="PackedScene" uid="uid://bvga4maqxilpx" path="res://scenes/BetaWarning.tscn" id="5_7la6k"]
+[ext_resource type="PackedScene" uid="uid://cc22s4xgdun2g" path="res://scenes/Documentation.tscn" id="6_ucygd"]
+
+[node name="MainMenu" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_826wr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+clip_tabs = false
+
+[node name="File loading" type="VBoxContainer" parent="VBoxContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="DemoContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/File loading"]
+layout_mode = 2
+
+[node name="DemoButton" type="Button" parent="VBoxContainer/TabContainer/File loading/DemoContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Load demo"
+
+[node name="DemoOptionButton" type="OptionButton" parent="VBoxContainer/TabContainer/File loading/DemoContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+script = ExtResource("2_ucygd")
+
+[node name="URLContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/File loading"]
+visible = false
+layout_mode = 2
+
+[node name="OpenURLLabel" type="Label" parent="VBoxContainer/TabContainer/File loading/URLContainer"]
+layout_mode = 2
+text = "Open from URL: "
+
+[node name="FieldURL" type="LineEdit" parent="VBoxContainer/TabContainer/File loading/URLContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "https://erwan-privat.fr/demo_pes/glycine.pes"
+placeholder_text = "https://example.org/example_pes.pes"
+
+[node name="LoadURLButton" type="Button" parent="VBoxContainer/TabContainer/File loading/URLContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load"
+
+[node name="NativeOnly" type="VBoxContainer" parent="VBoxContainer/TabContainer/File loading"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="NativeLabel" type="Label" parent="VBoxContainer/TabContainer/File loading/NativeOnly"]
+visible = false
+layout_mode = 2
+text = "Native version only"
+
+[node name="OpenPESButton" type="Button" parent="VBoxContainer/TabContainer/File loading/NativeOnly"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Open *.pes file..."
+autowrap_mode = 2
+
+[node name="ClipboardButton" type="Button" parent="VBoxContainer/TabContainer/File loading/NativeOnly"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Make sure you have properly formatted input in it, game will crash if not."
+text = "Load from clipboard"
+
+[node name="RawInputButton" type="Button" parent="VBoxContainer/TabContainer/File loading"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Raw input..."
+
+[node name="WebOnly" type="VBoxContainer" parent="VBoxContainer/TabContainer/File loading"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="WebLabel" type="Label" parent="VBoxContainer/TabContainer/File loading/WebOnly"]
+visible = false
+layout_mode = 2
+text = "Web only"
+
+[node name="UploadButton" type="Button" parent="VBoxContainer/TabContainer/File loading/WebOnly"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Upload"
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/TabContainer/File loading"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/TabContainer/File loading"]
+layout_mode = 2
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer/TabContainer/File loading"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Loading..."
+editable = false
+
+[node name="PES settings" parent="VBoxContainer/TabContainer" instance=ExtResource("3_mipys")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="App settings" parent="VBoxContainer/TabContainer" instance=ExtResource("4_ucygd")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Credits" parent="VBoxContainer/TabContainer" instance=ExtResource("4_8a8k8")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Documentation" parent="VBoxContainer/TabContainer" instance=ExtResource("6_ucygd")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="Beta warning" parent="VBoxContainer/TabContainer" instance=ExtResource("5_7la6k")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 5
+
+[node name="BottomButtonsContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/BottomButtonsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"
+
+[node name="Spacer" type="Control" parent="VBoxContainer/BottomButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RunButton" type="Button" parent="VBoxContainer/BottomButtonsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Run"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Open a File"
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+use_native_dialog = true
+
+[node name="PastePopupPanel" type="PopupPanel" parent="."]
+unique_name_in_owner = true
+size = Vector2i(296, 200)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PastePopupPanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 292.0
+offset_bottom = 196.0
+
+[node name="Label" type="Label" parent="PastePopupPanel/VBoxContainer"]
+layout_mode = 2
+text = "Paste your .xyz below and press load:"
+
+[node name="PopupTextEdit" type="TextEdit" parent="PastePopupPanel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PastePopupPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="PopupCancelButton" type="Button" parent="PastePopupPanel/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Cancel"
+
+[node name="Control" type="Control" parent="PastePopupPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PopupLoadButton" type="Button" parent="PastePopupPanel/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+unique_name_in_owner = true
