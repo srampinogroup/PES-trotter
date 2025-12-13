@@ -14,13 +14,15 @@ the exploration of the different features of a PES by allowing 3-D
 navigation, energy profiling, Minimum Energy Path (MEP) computation and
 trajectory playback.
 
-## Beta version is now live
+## Online version is now live
 
-This is the official repository for the beta version of the
-open-source PES-trotter app. The full source code will be available
-soon. In the meantime, you can test the project via web at this page:
+This is the official repository for the open-source PES-trotter app.
+You can test the project via web at this page:
 
 * https://srampinogroup.github.io/PES-trotter
+
+or run from source with the [Godot editor](https://godotengine.org/download)
+v4.5-stable or newer.
 
 The user guide is available below. Feel free to open an issue if you
 found a bug.
@@ -36,16 +38,19 @@ found a bug.
 - [User guide](#user-guide)
   * [Main menu](#main-menu)
     + [Loading the PES](#loading-the-pes)
-    + [Settings tab](#settings-tab)
-      - [Surface coordinates](#surface-coordinates)
+    + [PES settings tab](#pes-settings-tab)
+      - [Surface and atom coordinates](#surface-and-atom-coordinates)
       - [World map](#world-map)
       - [Trajectory playback](#trajectory-playback)
-      - [Controls settings](#controls-settings)
+      - [Controls settings and accessibility](#controls-settings-and-accessibility)
+      - [Experimental features](#experimental-features)
   * [Exploration](#exploration)
     + [Navigation](#navigation)
     + [Drawing a trajectory](#drawing-a-trajectory)
     + [Computing minimum energy path](#computing-minimum-energy-path)
+    + [Playback of the trajectory](#playback-of-the-trajectory)
 - [Keyboard and mouse controls](#keyboard-and-mouse-controls)
+- [Alternate controls for touch devices](#alternate-controls-for-touch-devices)
 
 # Quick start
 
