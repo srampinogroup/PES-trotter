@@ -30,9 +30,6 @@ found a bug.
 [![license: CC BY
 4.0](https://img.shields.io/badge/license-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-> [!NOTE]
-> This guide is a work in progress and is frequently updated.
-
 ## Table of contents
 
 - [Quick start](#quick-start)
@@ -54,17 +51,12 @@ found a bug.
 
 Here is how to quickly overview the features of the software.
 
-0. If it is the first time you launch the app, read the disclaimer
-and go to **File Loading** tab.
-1. Load one of the demo files available with the drop-down menu on
-the right of the first button.
-   * The glycine one will quickly load but is really small and uses
-     internal degrees of freedom as coordinates.
-   * If unsure, use the `rrx_c2hp_small.pes` or `lih2p_rrp_coords_small.pes` PESs who
-     demonstrates reactive scattering with three atoms.
-   * The `test_*` ones are for debugging purpose and do not represent
-     any meaningful physical process. They are not in the web export.
-2. Press **Load demo** to load the PES.
+0. If it is the first time you launch the app, read the disclaimer,
+eventually adapt the font size, and go to **File Loading** tab.
+2. Load one of the demonstration files available with the drop-down
+menu on the right of the first button. See the article for more
+details on the available demos.
+4. Press **Load demo** to load the PES.
 
 > [!NOTE]
 > Loading a demo file will erase previously entered settings
@@ -78,10 +70,10 @@ showing in the corner the configuration of the molecule at the point
 you are standing.  On touch screen devices you have virtual joystick,
 on the left to move and on the right to look around.  All actions are
 accessible through the action menu at the bottom of the screen. For
-mouse users, you need to press `F12` to toggle mouse capture.
+mouse users, you need to press `Enter` or `F12` to toggle mouse capture.
 Exhaustive control map for PC is [at the end of this
 guide](#keyboard-and-mouse-controls).
-6. Use `F11` with keyboard, or **Toggle fly mode** in the action menu
+6. Use `F` with keyboard, or **Toggle fly mode** in the action menu
 at the bottom to have the configuration of the molecule shown at the
 point you aim at, like a laser pointer.
 7. In the action menu you can use **Activate drawing profile** to
@@ -98,28 +90,21 @@ action **Toggle trajectory ride**. Press again to exit this mode.
    profile** action.
 9. You can display points of interest, that is critical points
 (maxima, minima and saddle points). For that:
-   1. Go to the main menu with `ESC` or from the action menu.
-   2. In the **Settings** tab, press **Compute critical points** under
-   the minimap.
-   3. Press **Resume** to go back to the PES map.
-   4. You can press the newly displayed "anchors" to teleport to them
+   1. Toggle anchors visibility in the menu with **Show critical
+   points**.
+   2. You can press the newly displayed anchors to teleport to them
    and see the specific configuration at this point.
-   5. In the action menu there is a visibility toggle for these
-   points, it is called **Show/hide anchors**.
-10. Finally there is a rough estimate of a minimum energy path (MEP)
-available. That, you can compute the minimum energy path a complex
-would take during e.g. a reaction.
+11. Finally there is an A* estimate of a minimum energy path (MEP)
+available. With this feature, you can compute the minimum energy path a
+complex would take during e.g. a reaction.
     1. First, enable the user interface to select the start and final
     points of the MEP with the action **Compute MEP**.
     2. Click/tap on the surface where you want the MEP to start from.
     3. Click/tap on the surface where you want the path to end.
     4. You have now the MEP in green. You can toggle its visibility
     with the **Show/hide minimum energy path (MEP)** option.
-    5. Optionnally, you can create an energy profile from this MEP
-    with the action **MEP to profile**. That way, you can use point 7.
-    on the MEP.
-11. Enjoy!
-   
+    5. Convert the MEP to an energy profile with the action **MEP to
+    profile**. You can now used the trajectory features on this path.   
 
 # User guide
 
@@ -130,13 +115,12 @@ or mobile browser.  I will say "desktop" for mouse and keyboard
 controls, and "touch device" for phones and tablets independant of
 whereas the app is being accessed by browser or natively.  Everything
 should be equivalent for native PC, native mobile, web PC and web
-mobile, but bugs might prove me wrong.
+mobile.
 
 > [!WARNING]
 > Right now the web exported app does not work correctly
 > on Safari because of mouse capture issues. Please use another
 > browser.
-
 
 ## Main menu
 
@@ -185,11 +169,11 @@ for now on.  With (3) select the `rrx_c2hp_small.pes` demo and click (4)
     If you want you dive straight into navigation, skip the next
     section.
 
-### Settings tab
+### PES settings tab
 
 The settings tab can be accessed from the top tab bar (2).
 
-#### Surface coordinates
+#### Surface and atom coordinates
 
 <p align="center">
 <img width="690" height="184" alt="surface coordinates settings screenshot"
