@@ -283,35 +283,35 @@ be `ZQSD`.  `LMB`, `MMB`, `RMB`, `MBn` are respectively left, right,
 middle and n-th mouse button.  `Wheel` is mouse wheel or touchpad
 scroll.
 
-key          | mode         | description
--------------|--------------|------------
-`W`          |              | move forwards
-`S`          |              | move backwards
-`A`          |              | straff left
-`D`          |              | straff right
-`Space`      |              | jump
-`Shift`      |              | accelerate all movements
-`F12`/`Enter`|              | toggle mouse capture (prefer `Enter` on web on laptop)
-`F`          |              | toggle fly mode
-`Space`      | fly          | fly up
-`Ctrl`       | fly          | fly down
-`A`          |              | rotate molecule anti-clockwise
-`E`          |              | rotate molecule clockwise
-`+`          |              | on all axes, scale map up (PC only)
-`-`          |              | on all axes, scale map down (PC only)
-`LMB`        | on molecule  | drag to rotate molecule
-`Wheel`      |              | zoom of the molecule
-`P`          |              | toggle profiling and mouse capture
-`LMB`        | profiling    | drag to draw profile
-`RMB`        | profiling    | erase profile
-`K`          |              | save profile to file
-`L`          |              | load profile from file
-`U`          |              | slow down trajectory playback
-`I`          |              | speed up trajectory playback
-`ESC`/`M`/`,`|              | open menu, resume from menu
-`O`          |              | toggle minimum energy path mode and mouse capture
-`LMB`        | minimum path | select first point, then select second point
-`Ctrl+F`     |              | force instant quit (safe)
+key              | mode         | description
+-----------------|--------------|------------
+`W`              |              | move forwards
+`S`              |              | move backwards
+`A`              |              | strafe left
+`D`              |              | strafe right
+`Space`          |              | jump
+`Shift`          |              | accelerate all movements
+`Enter`/`F12`    |              | toggle mouse capture (prefer `Enter` on web on laptop)
+`F`              |              | toggle fly mode
+`Space`          | fly          | fly up
+`Ctrl`           | fly          | fly down
+`A`              |              | rotate molecule anti-clockwise
+`E`              |              | rotate molecule clockwise
+`+`              |              | on all axes, scale map up (PC only)
+`-`              |              | on all axes, scale map down (PC only)
+`LMB`            | on molecule  | drag to rotate molecule
+`Wheel`          |              | zoom of the molecule
+`P`              |              | toggle profiling and mouse capture
+`LMB`            | profiling    | drag to draw profile
+`RMB`            | profiling    | erase profile
+`K`              |              | save profile to file
+`L`              |              | load profile from file
+`U`              |              | slow down trajectory playback
+`I`              |              | speed up trajectory playback
+`ESC`            |              | open menu, resume from menu
+`O`              |              | toggle minimum energy path mode and mouse capture
+`LMB`            | minimum path | select first point, then select second point
+`Ctrl+F`         |              | force instant quit (safe)
 
 # Alternate controls for touch devices
 
