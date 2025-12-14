@@ -9,10 +9,10 @@
 ![GitHub License](https://img.shields.io/github/license/srampinogroup/PES-trotter)
 
 PES-trotter is a mutli-plateform software designed to allow the
-exploration of Potential Energy Surfaces (PES). It aims at facilitating
-the exploration of the different features of a PES by allowing 3-D
-navigation, energy profiling, Minimum Energy Path (MEP) computation and
-trajectory playback.
+exploration of Potential Energy Surfaces (PES). It aims at
+facilitating the exploration of the different features of a PES by
+allowing 3-D navigation, energy profiling, Minimum Energy Path (MEP)
+computation and trajectory playback.
 
 ## Online version is now live
 
@@ -21,7 +21,8 @@ You can test the project via web at this page:
 
 * https://srampinogroup.github.io/PES-trotter
 
-or run from source with the [Godot editor](https://godotengine.org/download)
+or run from source with the
+[Godot editor](https://godotengine.org/download)
 v4.5-stable or newer.
 
 The user guide is available below. Feel free to open an issue if you
@@ -29,8 +30,7 @@ found a bug.
 
 # User guide
 
-[![license: CC BY
-4.0](https://img.shields.io/badge/license-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![license: CC BY 4.0](https://img.shields.io/badge/license-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 ## Table of contents
 
@@ -58,10 +58,10 @@ Here is how to quickly overview the features of the software.
 
 0. If it is the first time you launch the app, read the disclaimer,
 eventually adapt the font size, and go to **File Loading** tab.
-2. Load one of the demonstration files available with the drop-down
+1. Load one of the demonstration files available with the drop-down
 menu on the right of the first button. See the article for more
 details on the available demos.
-4. Press **Load demo** to load the PES.
+2. Press **Load demo** to load the PES.
 
 > [!NOTE]
 > Loading a demo file will erase previously entered settings
@@ -76,21 +76,21 @@ you are standing.  On touch screen devices you have virtual joystick,
 on the left to move and on the right to look around.  All actions are
 accessible through the action menu at the bottom of the screen. For
 mouse users, you need to press `Enter` or `F12` to toggle mouse capture.
-Exhaustive control map for PC is [at the end of this
-guide](#keyboard-and-mouse-controls).
-6. Use `F` with keyboard, or **Toggle fly mode** in the action menu
+Exhaustive control map for PC is
+[at the end of this guide](#keyboard-and-mouse-controls).
+5. Use `F` with keyboard, or **Fly mode** in the action menu
 at the bottom to have the configuration of the molecule shown at the
 point you aim at, like a laser pointer.
-7. In the action menu you can use **Activate drawing profile** to
-draw on the PES an energy profile.
-8. You can either watch or ride the trajectory you just draw with the
-action **Toggle trajectory ride**. Press again to exit this mode.
+6. In the action menu you can use **Draw profile** to draw on the PES
+   an energy profile.
+7. You can either watch or ride the trajectory you just draw with the
+action **Trajectory playback**. Press again to exit this mode.
    * If you are in walk mode, you will ride the trajectory and see
      the configuration updated from your position on the PES.
    * If you are in fly mode, you will see a pointer arrow indicating
      the current PES coordinates corresponding to the displayed
      configuration.
-9. The current profile can be saved with `K` or the corresponding
+8. The current profile can be saved with `K` or the corresponding
    action **Save profile**, and similarly loaded with `L` or **Load
    profile** action.
 9. You can display points of interest, that is critical points
@@ -99,33 +99,32 @@ action **Toggle trajectory ride**. Press again to exit this mode.
    points**.
    2. You can press the newly displayed anchors to teleport to them
    and see the specific configuration at this point.
-11. Finally there is an A* estimate of a minimum energy path (MEP)
-available. With this feature, you can compute the minimum energy path a
-complex would take during e.g. a reaction.
+10. Finally there is an A* estimate of a minimum energy path (MEP)
+available. With this feature, you can compute the minimum energy path
+a complex would take during e.g. a reaction.
     1. First, enable the user interface to select the start and final
     points of the MEP with the action **Compute MEP**.
     2. Click/tap on the surface where you want the MEP to start from.
     3. Click/tap on the surface where you want the path to end.
     4. You have now the MEP in green. You can toggle its visibility
-    with the **Show/hide minimum energy path (MEP)** option.
+    with the **Show minimum energy path (MEP)** option.
     5. Convert the MEP to an energy profile with the action **MEP to
-    profile**. You can now used the trajectory features on this path.   
+    profile**. You can now use the trajectory features on this path.   
 
 # User guide
 
-I will use the term "native" when the project is launched from Godot,
-being on desktop or mobile (android only).  I will refer to the "web"
-version when the project is accessed by browser, being from desktop
-or mobile browser.  I will say "desktop" for mouse and keyboard
-controls, and "touch device" for phones and tablets independant of
-whereas the app is being accessed by browser or natively.  Everything
-should be equivalent for native PC, native mobile, web PC and web
-mobile.
+We use the term "native" when the project is launched from Godot,
+being on desktop or mobile (android only).  We will refer to the
+"web" version when the project is accessed by browser, being from
+desktop or mobile.  We say "desktop" for mouse and keyboard controls,
+and "touch device" for phones and tablets independant of whereas the
+app is being accessed by browser or natively.  Everything should be
+equivalent for native PC, native mobile, web PC and web mobile.
 
 > [!WARNING]
 > Right now the web exported app does not work correctly
 > on Safari because of mouse capture issues. Please use another
-> browser.
+> browser on macOS.
 
 ## Main menu
 
@@ -135,71 +134,50 @@ where you load the PES. The screenshot below shows both native and
 web UI elements, but you should only see half of those when you run
 the project depending on if you use the native or web version.
 
-<p align="center">
-<img width="807" height="540" alt="main menu screenshot"
-src="https://github.com/user-attachments/assets/c82dd044-5994-487e-bc55-e460f319f90c" />
-</p>
-
-Here are the interacting elements:
-
-1. The main tab of the main menu.
-2. The settings tab (described below).
-3. Demo PES selector. Here you can find demo PESs shipped with the
+1. The tab bar allowing you to access different menus.
+2. Demo PES selector. Here you can find demo PESs shipped with the
 application. Once you have selected a PES, you can use (4) to load
 it.
-4. Load the selected demo PES. Fast-forward: you can then press Run
+3. Load the selected demo PES. Fast-forward: you can then press Run
 (9) right after the load is finished and go the
 [Exploration](#exploration) section.
-5. Open a PES file from your computer/phone. Only works in native
-version.
-6. Load from a URL. Work on any platform.
-7. Load from clipboard (as if you did `Ctrl+V`/`Cmd+V`). This is not
-a stable feature, if the file is too big it might crash the app.
-8. Upload from your device (web only).
-9. Run the loaded PES. You will not be able to press the button if no
+4. Open a PES file from your computer/phone. On the web version this
+   is an upload button.
+5. Non interactive progress bar and log console.
+6. Run the loaded PES. You will not be able to press the button if no
 PES is loaded so if you can click it is safe to do so.
-
-Not interactive elements include:
-
-* a. Progress bar. Not working on web at the moment.
-* b. Console.
 
 ### Loading the PES
 
 Depending on the plateform you can either load from disk, load from
 URL, or upload as explained above. In any case, we'll use the demo
-for now on.  With (3) select the `rrx_c2hp_small.pes` demo and click (4)
-    to load the demo. After a few seconds (the progress bar is not
-    working on web right now), the Run (9) button should be enabled.
-    If you want you dive straight into navigation, skip the next
-    section.
+for now on.  With (2) select a demo and click (3) to load it. After a
+few seconds, the Run (9) button should be enabled.  If you want you
+dive straight into navigation, skip the next section.
 
 ### PES settings tab
 
-The settings tab can be accessed from the top tab bar (2).
+The PES settings tab can be accessed from the top tab bar (2). They
+are organized in sections.
 
 #### Surface and atom coordinates
-
-<p align="center">
-<img width="690" height="184" alt="surface coordinates settings screenshot"
-src="https://github.com/user-attachments/assets/a3febfeb-4331-4ef7-bee7-a5b1bfa95155" />
-</p>
 
 This section allows you to name the parameters of the PES. By default
 they are called `x` and `y` for the two coordinates of the file.  You
 can also specify the range of these parameters so the correct value
-is displayed when exploring.
+is displayed when exploring. This is also used by the tiling feature
+if you use it.
+You can also clamp the PES in the height dimension, for example to
+cut very high peaks or deep wells from the rendering. To do that, put
+a maximum and/or a minimum value for the energy.
+Finally you can specify the units used in the PES XYZ file. They are
+normally angstroms. It only affects the rendering of the molecule.
 
 #### World map
 
-<p align="center">
-<img width="688" height="664" alt="world map settings screenshot"
-src="https://github.com/user-attachments/assets/7bc17147-b45c-4ec7-a9a4-79ba28176747" />
-</p>
-
 This section contains the in-world scaling factors of the PES so you
-can change the world size.  You can also clip the PES by setting
-custom minimum and maximum energies to be considered when rendering.
+can change the world size. ISO lines can be displayed and their
+spacing specified.
 
 The A* weight function setting is a bit more complicated: it gives
 you the possibility of choosing how Godot will convert energies to
@@ -208,62 +186,87 @@ hardness" of the terrain as a function of the energy.  You should
 write it as a function of `E`, that is the energy minus the minimum
 energy so that the minimum is at `E = 0`.
 
-Next you have a sort of minimap, on which you can click to select the
+Next you have the minimap, on which you can click to select the
 landing position when running the exploration.  On it will also be
 displayed the extrema and saddle points that you can hide or show
-with the check button next to the *Recompute* button. You can set the
-threshold to eliminate false positive or duplicated detected points,
-e.g. on flat surfaces.
+with the check button next to the **Recompute** button. You can set
+the threshold to eliminate false positive or duplicated detected
+points, e.g. on flat surfaces.
+
+#### Tiling
+
+These settings allow you to inform PES-trotter that the provided PES
+is actually tiled. It does not tile it for you. To do that, see the
+[dedicated script](tools/xyz_tile_pes.py).
+
+#### Import/export
+
+FInally, you can load or save these settings from and to a `.ini`
+file. Demos are shipped with their own `.ini`, and PES-trotter will
+load any `.ini` file sharing the same path and name as the loaded
+`.pes`.
+
+### App settings
+
+#### Controls settings
+
+Here you have miscellaneous settings regarding controls. On touch
+devices, do not deactivate joysticks unless you have external
+controls plugged-in or you will be unable to navigate.
+
+#### Accessibility
+
+You can swap and rotate the hue of the whole app to help with
+protanopia or deuteranopia, as well as scale the whole UI.
 
 #### Trajectory playback
 
 This allows you to set the time it takes to play a trajectory or a
 ride on the energy profile (see profiling below).  You can also allow
 for the playback to loop back to initial position once it reaches the
-end.
+end or bounce back.
 
-#### Controls settings and accessibility
+#### Profile chart
 
-Here you have miscellaneous settings regarding controls. On touch
-devices, do not deactivate joysticks or you will be unable to
-navigate. You can also swap and rotate the hue of the whole app
-to help with protanopia or deuteranopia.
+This sets the number of points used during energy profile drawing and
+trajectory resampling.
 
-#### Experimental features
+#### Miscellaneous
 
-The *show bonds* option reduce the size of the atomic balls and display
-a varying-in-size cylinder to represent bonds. It should not be used
-for big molecules, as the visiblity and performance will be poor.
+Allows selective UI tweaks for sound and color bars display.
+The **show bonds** option reduce the size of the atomic balls and
+display a varying-in-size cylinder to represent bonds. It should not
+be used for big molecules, as the visiblity and performance will be
+greatly affected.
 
 ## Exploration
 
-Once you press the Run/Resume button, after a little scene loading
-time, you will land on the PES. Every keyboard actions I'll mention
-will also be actionable from the Actions menu at the bottom of the
-screen.
+Once you press the **Run**/**Resume** button, after a little scene
+loading time, you will land on the PES. Every keyboard actions I'll
+mention will also be actionable from the Actions menu at the bottom
+of the screen.
 
 ### Navigation
 
 The initial control scheme will be in walk mode. That is you can move
 like in a FPS video game with `WASD`, sprint with `Shift` and jump
-with `Space`. You can toggle fly mode with `F11`, and control
-vertical movements with `Space` and `Ctrl`. On phone, you can use the
-left joystick to move and the right one to look.  You can then fly up
-by looking up and going forwards, or by looking down and going
+with `Space`. You can toggle fly mode with `F`, and control vertical
+movements with `Space` and `Ctrl`. On phone, you can use the left
+joystick to move and the right one to look.  You can then fly up by
+looking up and going forwards, or by looking down and going
 backwards.
 
 ### Drawing a trajectory
 
 For drawing a trajectory by hand we recommend activating fly mode
-(`F11`) to take a view from the top. Toggle the profiling mode
-and draw onto the PES. Toggle the profiling mode again to leave
-drawing mode.
+(`F`) to take a view from the top. Toggle the profiling mode and draw
+onto the PES. Toggle the profiling mode again to leave drawing mode.
 
 ### Computing minimum energy path
 
 Again we recommend taking some distance in fly mode. Toggle the
-minimum energy path (MEP) with `F9`. Click to set the starting point,
-click again on the end point.  Press `F9` again to leave the mode.
+minimum energy path (MEP) with `O`. Click to set the starting point,
+click again on the end point.  Press `O` again to leave the mode.
 You can now create a trajectory from the MEP by selecting the
 corresponding action in the menu.
 
@@ -271,13 +274,15 @@ corresponding action in the menu.
 
 Any profile can be played, either in "ride mode", that is you will
 automatically walk alongside the trajectory if in walk mode, or in
-"spectator mode", if you are in fly mode. A red arrow will be displayed
-following the trajectory.
+"spectator mode", if you are in fly mode. A red arrow will be
+displayed following the trajectory. This mode can be activated with
+`T`.
 
-If the trajectory is loaded from a file however, the configuration will
-follow the one in the file and will not be the minimum configuration
-pre-computed with the PES. This will be made obvious by the display of
-the file name under the molecule and a change of the color of the support.
+If the trajectory is loaded from a file however, the configuration
+will follow the one in the file and will not be the minimum
+configuration pre-computed with the PES. This will be made obvious by
+the display of the file name under the molecule and a change of the
+color of the support.
 
 
 # Keyboard and mouse controls
@@ -294,8 +299,13 @@ key              | mode         | description
 `S`              |              | move backwards
 `A`              |              | strafe left
 `D`              |              | strafe right
+`Mouse move`     |              | look around
+`↑`              |              | look up
+`↓`              |              | look down
+`←`              |              | look left
+`→`              |              | look right
 `Space`          |              | jump
-`Shift`          |              | accelerate all movements
+`Shift`          |              | speed up all movements
 `Enter`/`F12`    |              | toggle mouse capture (prefer `Enter` on web on laptop)
 `F`              |              | toggle fly mode
 `Space`          | fly          | fly up
@@ -311,11 +321,12 @@ key              | mode         | description
 `RMB`            | profiling    | erase profile
 `K`              |              | save profile to file
 `L`              |              | load profile from file
+`O`              |              | toggle minimum energy path mode and mouse capture
+`T`              |              | toggle trajectory playback
 `U`              |              | slow down trajectory playback
 `I`              |              | speed up trajectory playback
-`ESC`            |              | open menu, resume from menu
-`O`              |              | toggle minimum energy path mode and mouse capture
 `LMB`            | minimum path | select first point, then select second point
+`ESC`            |              | open menu, resume from menu
 `Ctrl+F`         |              | force instant quit (safe)
 
 # Alternate controls for touch devices
