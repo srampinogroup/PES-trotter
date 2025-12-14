@@ -1,6 +1,5 @@
 # PES-trotter
 
-
 <p align="center">
  <img width="1135" height="423" alt="PES-trotter title image"
  src="https://github.com/user-attachments/assets/32355cce-61df-4fb0-9f72-f0729553ba37" />
@@ -36,21 +35,27 @@ found a bug.
 
 - [Quick start](#quick-start)
 - [User guide](#user-guide)
-  * [Main menu](#main-menu)
-    + [Loading the PES](#loading-the-pes)
-    + [PES settings tab](#pes-settings-tab)
-      - [Surface and atom coordinates](#surface-and-atom-coordinates)
-      - [World map](#world-map)
-      - [Trajectory playback](#trajectory-playback)
-      - [Controls settings and accessibility](#controls-settings-and-accessibility)
-      - [Experimental features](#experimental-features)
-  * [Exploration](#exploration)
-    + [Navigation](#navigation)
-    + [Drawing a trajectory](#drawing-a-trajectory)
-    + [Computing minimum energy path](#computing-minimum-energy-path)
-    + [Playback of the trajectory](#playback-of-the-trajectory)
+   * [Main menu](#main-menu)
+      + [Loading the PES](#loading-the-pes)
+      + [PES settings tab](#pes-settings-tab)
+         - [Surface and atom coordinates](#surface-and-atom-coordinates)
+         - [World map](#world-map)
+         - [Tiling](#tiling)
+         - [Import/export](#importexport)
+      + [App settings](#app-settings)
+         - [Controls settings](#controls-settings)
+         - [Accessibility](#accessibility)
+         - [Trajectory playback](#trajectory-playback)
+         - [Profile chart](#profile-chart)
+         - [Miscellaneous](#miscellaneous)
+   * [Exploration](#exploration)
+      + [Navigation](#navigation)
+      + [Drawing a trajectory](#drawing-a-trajectory)
+      + [Computing minimum energy path](#computing-minimum-energy-path)
+      + [Playback of the trajectory](#playback-of-the-trajectory)
 - [Keyboard and mouse controls](#keyboard-and-mouse-controls)
 - [Alternate controls for touch devices](#alternate-controls-for-touch-devices)
+
 
 # Quick start
 
@@ -134,6 +139,10 @@ where you load the PES. The screenshot below shows both native and
 web UI elements, but you should only see half of those when you run
 the project depending on if you use the native or web version.
 
+<p align="center">
+<img width="718" height="264" alt="main-menu" src="https://github.com/user-attachments/assets/283438fd-2faf-4f38-a104-97672f616330" />
+</p>
+
 1. The tab bar allowing you to access different menus.
 2. Demo PES selector. Here you can find demo PESs shipped with the
 application. Once you have selected a PES, you can use (4) to load
@@ -159,6 +168,10 @@ dive straight into navigation, skip the next section.
 
 The PES settings tab can be accessed from the top tab bar (2). They
 are organized in sections.
+
+<p align="center">
+<img width="968" height="1056" alt="settings-full" src="https://github.com/user-attachments/assets/06483a17-c859-47d4-b833-b3b407673826" />
+</p>
 
 #### Surface and atom coordinates
 
