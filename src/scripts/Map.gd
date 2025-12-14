@@ -753,7 +753,7 @@ func _load_profile(path: String) -> void:
 	for grid_pos in grid_positions:
 		var pos := grid_coords_to_pos(grid_pos)
 		_profile_values.push_front(pos)
-		%ChartContainer.energy_profile.push_front(pos.y)
+		%ChartContainer.energy_profile.push_front(pos.y / Globals.global_scale_3d.y)
 	
 	_update_profile()
 	_mouse_captured = _mouse_was_captured
