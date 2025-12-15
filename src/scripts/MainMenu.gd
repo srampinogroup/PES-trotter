@@ -123,6 +123,7 @@ func _on_pes_loaded(pes_path: String) -> void:
 	var energies := Array(_pes_data.energies)
 	Globals.settings[&"energy_min"] = energies.min()
 	Globals.settings[&"energy_max"] = energies.max()
+	Globals.pes_init_pos = InitialPositionInfos.new()
 	Globals.pes_init_pos.pes_pos = 0.5 * Vector2(_pes_data.size_x - 1,
 												 _pes_data.size_y - 1)
 	Globals.pes_criticals.clear()
