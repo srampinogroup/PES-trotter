@@ -164,6 +164,8 @@ for now on.  With (2) select a demo and click (3) to load it. After a
 few seconds, the Run (9) button should be enabled.  If you want you
 dive straight into navigation, skip the next section.
 
+Format specifications are detailed in the dedicated document [here](files-specifications.md).
+
 ### PES settings tab
 
 The PES settings tab can be accessed from the top tab bar (2). They
