@@ -6,7 +6,7 @@ Full specifications at
 https://github.com/srampinogroup/PES-trotter/blob/main/files-specifications.md
 
 Usage:
-  ./log2avatar.py input.log output.xyz
+  ./gaussian_to_xyz.py input.log output.xyz
 """
 import sys
 import os
