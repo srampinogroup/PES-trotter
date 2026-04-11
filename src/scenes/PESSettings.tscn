@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bh7uft7vrd1ft"]
+[gd_scene format=3 uid="uid://bh7uft7vrd1ft"]
 
 [ext_resource type="Script" uid="uid://croi3ric3xggh" path="res://scripts/PESSettings.gd" id="1_enesv"]
 [ext_resource type="PackedScene" uid="uid://kergsarc0yic" path="res://scenes/Minimap.tscn" id="2_guc0a"]
 
-[node name="PES settings" type="VBoxContainer"]
+[node name="PES settings" type="VBoxContainer" unique_id=310689051]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -13,11 +13,11 @@ grow_vertical = 2
 script = ExtResource("1_enesv")
 metadata/_tab_index = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=44441267]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer" unique_id=2108625891]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -26,47 +26,47 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer" unique_id=195564996]
 layout_mode = 2
 
-[node name="DescriptionLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="DescriptionLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=170553496]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 text = "All settings are automatically saved when the value is changed. Scientific notation \"1e-5\" and some expressions (\"2*PI\" for \"6.2831\") are accepted in text boxes. For example: \"sqrt(2 + PI**1.5)\" will compute \"2.7511\"."
 autowrap_mode = 2
 
-[node name="SurfaceCoordsLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="SurfaceCoordsLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1954713646]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Surface and atom coordinates"
 
-[node name="HSeparator" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1135424434]
 layout_mode = 2
 
-[node name="CoordsContainer" type="GridContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="CoordsContainer" type="GridContainer" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=436955886]
 layout_mode = 2
 columns = 4
 
-[node name="EmptyControl" type="Control" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+[node name="EmptyControl" type="Control" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer" unique_id=618310078]
 layout_mode = 2
 
-[node name="LabelName" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+[node name="LabelName" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer" unique_id=1868631345]
 layout_mode = 2
 text = "name/units"
 
-[node name="LabelMin" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+[node name="LabelMin" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer" unique_id=26350568]
 layout_mode = 2
 text = "min value"
 
-[node name="LabelMax" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+[node name="LabelMax" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer" unique_id=743785061]
 layout_mode = 2
 text = "max value"
 
-[node name="LabelX" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+[node name="LabelX" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer" unique_id=1413415766]
 layout_mode = 2
 text = "X coord"
 
-[node name="FieldXName" type="LineEdit" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+[node name="FieldXName" type="LineEdit" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer" unique_id=235089568]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
@@ -74,7 +74,7 @@ size_flags_horizontal = 3
 text = "x"
 select_all_on_focus = true
 
-[node name="FieldXMin" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+[node name="FieldXMin" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer" unique_id=1056186201]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -83,7 +83,7 @@ allow_greater = true
 allow_lesser = true
 select_all_on_focus = true
 
-[node name="FieldXMax" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+[node name="FieldXMax" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer" unique_id=61782350]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -93,18 +93,18 @@ allow_greater = true
 allow_lesser = true
 select_all_on_focus = true
 
-[node name="LabelY" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+[node name="LabelY" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer" unique_id=2059600332]
 layout_mode = 2
 text = "Y coord"
 
-[node name="FieldYName" type="LineEdit" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+[node name="FieldYName" type="LineEdit" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer" unique_id=1310614886]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
 text = "y"
 select_all_on_focus = true
 
-[node name="FieldYMin" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+[node name="FieldYMin" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer" unique_id=301579291]
 unique_name_in_owner = true
 layout_mode = 2
 step = -1.0
@@ -112,7 +112,7 @@ allow_greater = true
 allow_lesser = true
 select_all_on_focus = true
 
-[node name="FieldYMax" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+[node name="FieldYMax" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer" unique_id=480380268]
 unique_name_in_owner = true
 layout_mode = 2
 step = -1.0
@@ -121,17 +121,17 @@ allow_greater = true
 allow_lesser = true
 select_all_on_focus = true
 
-[node name="EnergyLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+[node name="EnergyLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer" unique_id=697527932]
 layout_mode = 2
 text = "Energy"
 
-[node name="EnergyUnitsBox" type="LineEdit" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+[node name="EnergyUnitsBox" type="LineEdit" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer" unique_id=2098649614]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Ha"
 placeholder_text = "units"
 
-[node name="MinEnergyBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+[node name="MinEnergyBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer" unique_id=852836760]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -139,7 +139,7 @@ step = 0.0
 allow_greater = true
 allow_lesser = true
 
-[node name="MaxEnergyBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer"]
+[node name="MaxEnergyBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/CoordsContainer" unique_id=582527024]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -148,14 +148,14 @@ value = 1.0
 allow_greater = true
 allow_lesser = true
 
-[node name="PositionUnitContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="PositionUnitContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1386582740]
 layout_mode = 2
 
-[node name="PositionUnitLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/PositionUnitContainer"]
+[node name="PositionUnitLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/PositionUnitContainer" unique_id=268055023]
 layout_mode = 2
 text = "Atom positions unit	 factor"
 
-[node name="PositionUnitBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/PositionUnitContainer"]
+[node name="PositionUnitBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/PositionUnitContainer" unique_id=796113286]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -166,22 +166,22 @@ allow_lesser = true
 prefix = "1 unit ="
 suffix = "Å"
 
-[node name="WorldLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="WorldLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=864030046]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "World map"
 
-[node name="WorldSeparator" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="WorldSeparator" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=606037867]
 layout_mode = 2
 
-[node name="GlobalScaleContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="GlobalScaleContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1525150312]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/GlobalScaleContainer"]
+[node name="Label" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/GlobalScaleContainer" unique_id=1417035669]
 layout_mode = 2
 text = "Global scale"
 
-[node name="GlobalScaleBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/GlobalScaleContainer"]
+[node name="GlobalScaleBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/GlobalScaleContainer" unique_id=1829517980]
 unique_name_in_owner = true
 layout_mode = 2
 min_value = 0.01
@@ -189,23 +189,23 @@ step = 0.01
 value = 1.0
 select_all_on_focus = true
 
-[node name="ScaleGridContainer" type="GridContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="ScaleGridContainer" type="GridContainer" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1064705150]
 layout_mode = 2
 columns = 3
 
-[node name="LabelScaleZ" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/ScaleGridContainer"]
+[node name="LabelScaleZ" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/ScaleGridContainer" unique_id=518369863]
 layout_mode = 2
 text = "X scale (Z in world)"
 
-[node name="LabelScaleX" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/ScaleGridContainer"]
+[node name="LabelScaleX" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/ScaleGridContainer" unique_id=1636376282]
 layout_mode = 2
 text = "Y scale (X in world)"
 
-[node name="LabelScaleY" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/ScaleGridContainer"]
+[node name="LabelScaleY" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/ScaleGridContainer" unique_id=950562403]
 layout_mode = 2
 text = "height (Y in world)"
 
-[node name="FieldScaleZ" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/ScaleGridContainer"]
+[node name="FieldScaleZ" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/ScaleGridContainer" unique_id=1197370705]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
@@ -217,7 +217,7 @@ value = 1.0
 update_on_text_changed = true
 select_all_on_focus = true
 
-[node name="FieldScaleX" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/ScaleGridContainer"]
+[node name="FieldScaleX" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/ScaleGridContainer" unique_id=1979143163]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
@@ -228,7 +228,7 @@ value = 1.0
 update_on_text_changed = true
 select_all_on_focus = true
 
-[node name="FieldScaleY" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/ScaleGridContainer"]
+[node name="FieldScaleY" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/ScaleGridContainer" unique_id=1361295774]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
@@ -239,19 +239,19 @@ step = 0.01
 value = 1.0
 select_all_on_focus = true
 
-[node name="IsoContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="IsoContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=440705510]
 layout_mode = 2
 
-[node name="IsoCheck" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer/IsoContainer"]
+[node name="IsoCheck" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer/IsoContainer" unique_id=2108867222]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Display ISO lines"
 
-[node name="IsoLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/IsoContainer"]
+[node name="IsoLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/IsoContainer" unique_id=1888355057]
 layout_mode = 2
 text = " every"
 
-[node name="IsoBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/IsoContainer"]
+[node name="IsoBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/IsoContainer" unique_id=350070236]
 unique_name_in_owner = true
 layout_mode = 2
 min_value = 0.001
@@ -262,154 +262,154 @@ allow_greater = true
 editable = false
 suffix = "unit"
 
-[node name="WeightContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="WeightContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1007483666]
 layout_mode = 2
 tooltip_text = "Energy to A* weight function. Use 'E' as variable name. Note that the minimum energy E is always shifted to be 0."
 
-[node name="EtoWLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/WeightContainer"]
+[node name="EtoWLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/WeightContainer" unique_id=1673595359]
 layout_mode = 2
 text = "A* weight: w(E) ="
 
-[node name="EtoWBox" type="LineEdit" parent="ScrollContainer/MarginContainer/VBoxContainer/WeightContainer"]
+[node name="EtoWBox" type="LineEdit" parent="ScrollContainer/MarginContainer/VBoxContainer/WeightContainer" unique_id=1818272039]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "(E + 1)**2"
 
-[node name="EtoWResLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/WeightContainer"]
+[node name="EtoWResLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/WeightContainer" unique_id=1389404922]
 layout_mode = 2
 text = "e.g. w(0.8) ="
 
-[node name="EtoWResult" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/WeightContainer"]
+[node name="EtoWResult" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/WeightContainer" unique_id=673682721]
 unique_name_in_owner = true
 layout_mode = 2
 text = "3.24"
 
-[node name="EtoWResetButton" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer/WeightContainer"]
+[node name="EtoWResetButton" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer/WeightContainer" unique_id=368488895]
 unique_name_in_owner = true
 layout_mode = 2
 text = "reset"
 
-[node name="InitPosLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="InitPosLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=759518395]
 layout_mode = 2
 text = "Position on map"
 
-[node name="MinimapContainer" type="CenterContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="MinimapContainer" type="CenterContainer" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=2096271552]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer" unique_id=1033507259]
 layout_mode = 2
 
-[node name="Minimap" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer" instance=ExtResource("2_guc0a")]
+[node name="Minimap" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer" unique_id=1366246705 instance=ExtResource("2_guc0a")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="EpsContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer"]
+[node name="EpsContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer" unique_id=1752312702]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer/EpsContainer"]
+[node name="Label" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer/EpsContainer" unique_id=131651538]
 layout_mode = 2
 text = "threshold (abs value):"
 
-[node name="EpsilonBox" type="LineEdit" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer/EpsContainer"]
+[node name="EpsilonBox" type="LineEdit" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer/EpsContainer" unique_id=301487378]
 unique_name_in_owner = true
 layout_mode = 2
 text = "1e-5"
 
-[node name="EpsilonLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer"]
+[node name="EpsilonLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer" unique_id=190700329]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0.00001"
 
-[node name="MiniBtnHBox" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer"]
+[node name="MiniBtnHBox" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer" unique_id=2040278843]
 layout_mode = 2
 
-[node name="ComputeCriticalButton" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer/MiniBtnHBox"]
+[node name="ComputeCriticalButton" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer/MiniBtnHBox" unique_id=1385688319]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Recompute critical points"
 
-[node name="ShowCritsChk" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer/MiniBtnHBox"]
+[node name="ShowCritsChk" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer/MinimapContainer/VBoxContainer/MiniBtnHBox" unique_id=791913730]
 unique_name_in_owner = true
 layout_mode = 2
 button_pressed = true
 text = "show"
 
-[node name="TilingLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="TilingLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=395184903]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Tiling"
 
-[node name="TilingSeparator" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="TilingSeparator" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1995372080]
 layout_mode = 2
 
-[node name="TilingDescription" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="TilingDescription" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1971125797]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 text = "These UI settings allow for proper display of PES parameters when using a tiled PES. A tiled PES can be generated with the scripts present in the tools folder. For a 3x1 tiled PES that have X coordinate going from 0 to 360 for example, setting the X number of tiles to 3 will multiply the above mentioned 360 in the X coord max value by 3, and use X modulo max when displaying coords. We suppose minima to be 0."
 autowrap_mode = 2
 
-[node name="XTilesContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="XTilesContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1766207568]
 layout_mode = 2
 
-[node name="XTilesLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/XTilesContainer"]
+[node name="XTilesLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/XTilesContainer" unique_id=1074443979]
 layout_mode = 2
 text = "X number of tiles"
 
-[node name="XTilesBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/XTilesContainer"]
+[node name="XTilesBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/XTilesContainer" unique_id=1995897833]
 unique_name_in_owner = true
 layout_mode = 2
 min_value = 1.0
 value = 1.0
 rounded = true
 
-[node name="YTilesContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="YTilesContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1388286837]
 layout_mode = 2
 
-[node name="YTilesLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/YTilesContainer"]
+[node name="YTilesLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/YTilesContainer" unique_id=502348906]
 layout_mode = 2
 text = "Y number of tiles"
 
-[node name="YTilesBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/YTilesContainer"]
+[node name="YTilesBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/YTilesContainer" unique_id=738764917]
 unique_name_in_owner = true
 layout_mode = 2
 min_value = 1.0
 value = 1.0
 rounded = true
 
-[node name="ImportExportLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="ImportExportLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1872905565]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Import/export settings"
 
-[node name="ImportExportSep" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="ImportExportSep" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1307583064]
 layout_mode = 2
 
-[node name="ImportBtn" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="ImportBtn" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=2116222529]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Import .ini ..."
 
-[node name="ExportBtn" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="ExportBtn" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1065006871]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Export .ini ..."
 
-[node name="LogLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="LogLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1103320678]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ImportFileDialog" type="FileDialog" parent="."]
+[node name="ImportFileDialog" type="FileDialog" parent="." unique_id=451371114]
 unique_name_in_owner = true
 title = "Open a File"
 file_mode = 0
 access = 2
 use_native_dialog = true
 
-[node name="ExportFileDialog" type="FileDialog" parent="."]
+[node name="ExportFileDialog" type="FileDialog" parent="." unique_id=38480375]
 unique_name_in_owner = true
 access = 2
 use_native_dialog = true

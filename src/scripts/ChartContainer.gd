@@ -4,8 +4,9 @@ extends PanelContainer
 var energy_profile: Array[float]
 
 var _f: Function
-var _ylabel: String
+var _ylabel: String #FIXME not used until rotation of label implemented
 var _num_points: int
+
 
 func _ready() -> void:
 	_num_points = Globals.settings[&"num_sample_points"]
@@ -36,23 +37,18 @@ func _ready() -> void:
 	})
 	
 	%Chart.plot([_f] as Array[Function], cp)
-
-
-## FIXME useless?
-func _get_param_range() -> float:
-	var x_min = Globals.settings[&"x_min"] as float
-	var x_max = Globals.settings[&"x_max"] as float
-	var y_min = Globals.settings[&"y_min"] as float
-	var y_max = Globals.settings[&"y_max"] as float
 	
-	return sqrt((x_max - x_min) * (y_max - y_min))
+	visibility_changed.connect(_on_visibility_changed)
 
 
-func _physics_process(_delta: float) -> void:
-	if not is_visible_in_tree():
+func _on_visibility_changed() -> void:
+	if not visible:
 		return
 	
-	#NOTE optimization possible here: redraw only if needed
+	update_plot.call_deferred()
+
+
+func update_plot() -> void:
 	for i in range(min(_num_points, len(energy_profile))):
 		_f.set_point(i, float(i), energy_profile[i])
 	
@@ -68,6 +64,8 @@ func push(energy: float) -> void:
 	energy_profile.push_back(energy)
 	if len(energy_profile) > _num_points:
 		energy_profile.pop_front()
+	
+	update_plot()
 
 
 func clear() -> void:
@@ -75,7 +73,9 @@ func clear() -> void:
 		_f.set_point(i, float(i), 0.0)
 	
 	energy_profile.clear()
+	update_plot()
 
 
+##FIXME Not used
 func set_ylabel(lbl: String) -> void:
 	_ylabel = lbl

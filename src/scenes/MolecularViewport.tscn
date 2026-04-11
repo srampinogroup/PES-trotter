@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cacm85fn476v3"]
+[gd_scene format=3 uid="uid://cacm85fn476v3"]
 
 [ext_resource type="Script" uid="uid://dy2k3rj6sa3n4" path="res://scripts/MolecularViewport.gd" id="1_113g0"]
 [ext_resource type="Script" uid="uid://dqdvly27oj0uo" path="res://scripts/ArrowFrame.gd" id="2_113g0"]
@@ -29,7 +29,7 @@ depth = 0.02
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_113g0"]
 
-[node name="MoleculeViewport" type="SubViewport"]
+[node name="MoleculeViewport" type="SubViewport" unique_id=769361576]
 own_world_3d = true
 world_3d = SubResource("World3D_cep05")
 transparent_bg = true
@@ -40,82 +40,82 @@ size = Vector2i(300, 300)
 render_target_update_mode = 4
 script = ExtResource("1_113g0")
 
-[node name="Pivot" type="Node3D" parent="."]
+[node name="Pivot" type="Node3D" parent="." unique_id=200901578]
 unique_name_in_owner = true
 
-[node name="Camera3D" type="Camera3D" parent="Pivot"]
+[node name="Camera3D" type="Camera3D" parent="Pivot" unique_id=892823543]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.694658, 0.71934, 0, -0.71934, 0.694658, 0, 3, 5)
 current = true
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=496388483]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.99749, 0)
 shadow_enabled = true
 directional_shadow_mode = 1
 
-[node name="Plate" type="Node3D" parent="."]
+[node name="Plate" type="Node3D" parent="." unique_id=1433562790]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 
-[node name="ArrowFrame" type="Node3D" parent="Plate"]
+[node name="ArrowFrame" type="Node3D" parent="Plate" unique_id=1606529842]
 transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -2, 1, 2)
 script = ExtResource("2_113g0")
 override_material = SubResource("StandardMaterial3D_dv8b7")
 
-[node name="ZArrow" type="Node3D" parent="Plate/ArrowFrame"]
+[node name="ZArrow" type="Node3D" parent="Plate/ArrowFrame" unique_id=1261284060]
 transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 0, 0, 0)
 
-[node name="ZCylinder" type="CSGCylinder3D" parent="Plate/ArrowFrame/ZArrow"]
+[node name="ZCylinder" type="CSGCylinder3D" parent="Plate/ArrowFrame/ZArrow" unique_id=935075577]
 transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 1, 0)
 sides = 12
 
-[node name="ZCone" type="CSGCylinder3D" parent="Plate/ArrowFrame/ZArrow"]
+[node name="ZCone" type="CSGCylinder3D" parent="Plate/ArrowFrame/ZArrow" unique_id=2105757162]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.09245, 0)
 radius = 0.1
 height = 0.5
 cone = true
 
-[node name="ZText" type="MeshInstance3D" parent="Plate/ArrowFrame/ZArrow"]
+[node name="ZText" type="MeshInstance3D" parent="Plate/ArrowFrame/ZArrow" unique_id=334437942]
 unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.405, 0.99, 0)
 mesh = SubResource("TextMesh_l5ahi")
 
-[node name="XArrow" type="Node3D" parent="Plate/ArrowFrame"]
+[node name="XArrow" type="Node3D" parent="Plate/ArrowFrame" unique_id=1294298348]
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0, 0)
 
-[node name="XCylinder" type="CSGCylinder3D" parent="Plate/ArrowFrame/XArrow"]
+[node name="XCylinder" type="CSGCylinder3D" parent="Plate/ArrowFrame/XArrow" unique_id=1366251056]
 transform = Transform3D(0.1, 0, -1.32349e-23, 0, 1, 8.35187e-24, -1.32349e-23, 8.35187e-23, 0.1, 0, 1, 8.35187e-23)
 sides = 12
 
-[node name="XCone" type="CSGCylinder3D" parent="Plate/ArrowFrame/XArrow"]
+[node name="XCone" type="CSGCylinder3D" parent="Plate/ArrowFrame/XArrow" unique_id=1592461404]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.09245, 0)
 radius = 0.1
 height = 0.5
 cone = true
 
-[node name="XText" type="MeshInstance3D" parent="Plate/ArrowFrame/XArrow"]
+[node name="XText" type="MeshInstance3D" parent="Plate/ArrowFrame/XArrow" unique_id=1927768433]
 unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 1, -3.82137e-15, -1, -4.37114e-08, -8.74228e-08, -8.74228e-08, 2.32934e-21, 1, -0.422, 0.99, 0)
 mesh = SubResource("TextMesh_kks1g")
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="Plate/ArrowFrame"]
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Plate/ArrowFrame" unique_id=2067306562]
 transform = Transform3D(-1, 4.37114e-08, -1.91069e-15, 0, -4.37114e-08, -1, -4.37114e-08, -1, 4.37114e-08, 0, 0, 0)
 radius = 0.05
 rings = 8
 
-[node name="PlateMesh" type="CSGCylinder3D" parent="Plate"]
+[node name="PlateMesh" type="CSGCylinder3D" parent="Plate" unique_id=2091496326]
 unique_name_in_owner = true
 radius = 3.39551
 sides = 32
 material = SubResource("StandardMaterial3D_113g0")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=853661987]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Slider" type="VSlider" parent="Control"]
+[node name="Slider" type="VSlider" parent="Control" unique_id=993589370]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 11
@@ -133,7 +133,7 @@ max_value = 3.0
 step = -1.0
 value = 1.0
 
-[node name="TrajectoryLabel" type="Label" parent="Control"]
+[node name="TrajectoryLabel" type="Label" parent="Control" unique_id=757276869]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7

@@ -22,11 +22,15 @@ func _ready() -> void:
 
 
 func _visibility_changed() -> void:
-	if Globals.pes_data != null:
-		update_texture_from_pes()
-		update_minimap_pos()
-		await get_tree().create_timer(0.01).timeout
-		display_current_crits()
+	if not is_visible_in_tree():
+		return
+	if Globals.pes_data == null:
+		return
+	
+	update_texture_from_pes()
+	update_minimap_pos()
+	await get_tree().create_timer(0.01).timeout
+	display_current_crits()
 
 
 func _gui_input(event: InputEvent) -> void:
@@ -66,19 +70,19 @@ func update_texture_from_pes() -> void:
 	e_max = minf(e_max, Globals.settings[&"energy_max"])
 	
 	var energies_2d := pes.get_energies_matrix()
-	var upscaled := CriticalPoints.upscale_matrix(energies_2d)
 	
 	#NOTE swap of x and y
-	var image := Image.create_empty(len(upscaled[0]), len(upscaled),
-									false, Image.FORMAT_RGBA8)
+	var image := Image.create_empty(
+		len(energies_2d[0]), len(energies_2d), false, Image.FORMAT_RGBA8
+	)
 	image.fill(Color.WHITE)
 	
 	const TERRAIN = Globals.TERRAIN_GRADIENT
 	const OCEAN = Globals.OCEAN_GRADIENT
 	
-	for ix in len(upscaled):
-		for iy in len(upscaled[0]):
-			var e: float = upscaled[ix][iy]
+	for ix in len(energies_2d):
+		for iy in len(energies_2d[0]):
+			var e: float = energies_2d[ix][iy]
 			var terrain_color: Color
 			
 			if e > e_max:
@@ -92,8 +96,9 @@ func update_texture_from_pes() -> void:
 			else:
 				terrain_color = OCEAN.sample(e / e_min)
 			
-			var map_pos := _pes_to_texture(ix, iy, len(upscaled))
-			image.set_pixel(map_pos.x, map_pos.y, _post_process(terrain_color))
+			var map_pos := _pes_to_texture(ix, iy, len(energies_2d))
+			#image.set_pixel(map_pos.x, map_pos.y, _post_process(terrain_color))
+			image.set_pixel(map_pos.x, map_pos.y, terrain_color)
 	
 	var im_tex := ImageTexture.create_from_image(image)
 	texture = im_tex
@@ -112,9 +117,8 @@ func update_minimap_pos() -> void:
 
 ## Keep units, only make 1 pixel per grid point texture
 func _pes_to_texture(pes_x: int, pes_y: int, pes_size_x: int) -> Vector2i:
-	var pes := Globals.pes_data
 	var tex_pos := Vector2i.ZERO
-	if pes == null:
+	if Globals.pes_data == null:
 		return tex_pos
 	
 	# Switch x/y and flip H
@@ -202,19 +206,3 @@ func update_aspect_ratio() -> void:
 	custom_minimum_size.y = MINIMAP_SMALL_SIDE_SIZE * sy / sx
 	await get_tree().create_timer(0.01).timeout
 	display_current_crits()
-
-
-## Same as the shader, mainly for color-blindness options.
-func _post_process(color: Color) -> Color:
-	if Globals.settings[&"rotate_hue"]:
-		var tmp := color.r
-		color.r = color.g
-		color.g = color.b
-		color.b = tmp
-	
-	if Globals.settings[&"swap_hue"]:
-		var tmp := color.b
-		color.b = color.g
-		color.g = tmp
-		
-	return color

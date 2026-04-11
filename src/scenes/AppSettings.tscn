@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmyioq4hh7u4j"]
+[gd_scene format=3 uid="uid://bmyioq4hh7u4j"]
 
 [ext_resource type="Script" uid="uid://dnm2gdc3fhofr" path="res://scripts/AppSettings.gd" id="1_vgj7e"]
 
-[node name="App settings" type="VBoxContainer"]
+[node name="App settings" type="VBoxContainer" unique_id=497112023]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,58 +12,58 @@ grow_vertical = 2
 script = ExtResource("1_vgj7e")
 metadata/_tab_index = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1245371730]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer" unique_id=969641373]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer" unique_id=2127789767]
 layout_mode = 2
 
-[node name="ControlsLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="ControlsLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1346695463]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Controls settings"
 
-[node name="ControlsSeparator" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="ControlsSeparator" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=390645856]
 layout_mode = 2
 
-[node name="TouchCheck" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="TouchCheck" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=436037174]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Enable joysticks and other touchscreen rendering. Emulate touch from click on PC. Do not disable this on phone if you do not have special/external keybaord and external mouse, you will not be able to use controls."
 button_pressed = true
 text = "Enable touchscreen joysticks"
 
-[node name="SwapJoysticksBtn" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="SwapJoysticksBtn" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=452981584]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Swap left and right joysticks"
 
-[node name="FlyCheck" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="FlyCheck" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=436166747]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Start in fly mode"
 
-[node name="AlwaysSprintChk" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="AlwaysSprintChk" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=175981617]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Always sprint"
 
-[node name="LookSensBox" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="LookSensBox" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=2075246264]
 layout_mode = 2
 
-[node name="LookSensitivityLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/LookSensBox"]
+[node name="LookSensitivityLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/LookSensBox" unique_id=1380001171]
 layout_mode = 2
 text = "Camera mouse sensitivity"
 
-[node name="LookSensitivitySlider" type="HSlider" parent="ScrollContainer/MarginContainer/VBoxContainer/LookSensBox"]
+[node name="LookSensitivitySlider" type="HSlider" parent="ScrollContainer/MarginContainer/VBoxContainer/LookSensBox" unique_id=260243288]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -73,43 +73,43 @@ step = 0.001
 value = 1.0
 exp_edit = true
 
-[node name="LookSensitivityBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/LookSensBox"]
+[node name="LookSensitivityBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/LookSensBox" unique_id=791127591]
 unique_name_in_owner = true
 layout_mode = 2
 min_value = 0.01
 step = 0.01
 value = 1.0
 
-[node name="AccessibilityLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="AccessibilityLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1355087173]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Accessibility"
 
-[node name="AccessibilitySeparator" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="AccessibilitySeparator" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1488535624]
 layout_mode = 2
 
-[node name="AccessibilityInfo" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="AccessibilityInfo" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=527513485]
 layout_mode = 2
 text = "Rotate hue will go from RGB to GBR, and switch will reverse the order from RGB to RBG."
 
-[node name="RotateHueChk" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="RotateHueChk" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1095447260]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Rotate hue"
 
-[node name="SwapHueChk" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="SwapHueChk" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=828281101]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Switch hue"
 
-[node name="UIScaleContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="UIScaleContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=2093081848]
 layout_mode = 2
 
-[node name="UIScaleLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/UIScaleContainer"]
+[node name="UIScaleLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/UIScaleContainer" unique_id=1224569610]
 layout_mode = 2
 text = "UI scale"
 
-[node name="UIScaleBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/UIScaleContainer"]
+[node name="UIScaleBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/UIScaleContainer" unique_id=1770225623]
 unique_name_in_owner = true
 layout_mode = 2
 min_value = 0.5
@@ -117,23 +117,23 @@ max_value = 3.0
 step = 0.01
 value = 1.0
 
-[node name="TrajectoryLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="TrajectoryLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=467865914]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Trajectory playback"
 
-[node name="TrajectorySeparator" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="TrajectorySeparator" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1791018537]
 layout_mode = 2
 
-[node name="PlaybackTimeContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="PlaybackTimeContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1988812119]
 layout_mode = 2
 tooltip_text = "The time it takes to complete one trip through the trajectory."
 
-[node name="PLaybackTimeLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/PlaybackTimeContainer"]
+[node name="PLaybackTimeLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/PlaybackTimeContainer" unique_id=739395580]
 layout_mode = 2
 text = "Playback time"
 
-[node name="PlaybackTimeBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/PlaybackTimeContainer"]
+[node name="PlaybackTimeBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/PlaybackTimeContainer" unique_id=1896478644]
 unique_name_in_owner = true
 layout_mode = 2
 min_value = 0.1
@@ -142,41 +142,42 @@ step = 0.1
 value = 5.0
 suffix = "s"
 
-[node name="PlaybackLoopCheck" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="PlaybackLoopCheck" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=731499902]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "If checked, the trajectory animation will start again automatically once it ends."
 text = "Loop"
 
-[node name="PlaybackToAndFroCheck" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="PlaybackToAndFroCheck" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=186413327]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 tooltip_text = "If checked, the trajectory animation will go back in reverse instead of stopping at the end."
 text = "To and fro"
 
-[node name="ProfileLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="ProfileLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=297244644]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Profile chart"
 
-[node name="ProfileSeparator" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="ProfileSeparator" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=913096567]
 layout_mode = 2
 
-[node name="ProfileTooltip" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="ProfileTooltip" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1986089288]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
-text = "This is the number of points use when resampling energy profiles. We recommend setting the following setting not more than 200 if you plan to use the hand-drawn energy profiling feature. If you are loading trajectories, we recommend using 500 points, but you can use higher values to display more detailed paths if your device can handle the performance hit."
+text = "This is the number of points use when resampling energy profiles. We recommend setting the following to around 200 if you plan to use the hand-drawn energy profiling feature. "
 autowrap_mode = 2
 
-[node name="MaxPointsCont" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="MaxPointsCont" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=414904851]
 layout_mode = 2
 
-[node name="MaxPointsLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/MaxPointsCont"]
+[node name="MaxPointsLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/MaxPointsCont" unique_id=1695921045]
 layout_mode = 2
 text = "Sampling points number"
 
-[node name="MaxPointsBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/MaxPointsCont"]
+[node name="MaxPointsBox" type="SpinBox" parent="ScrollContainer/MarginContainer/VBoxContainer/MaxPointsCont" unique_id=1869187697]
 unique_name_in_owner = true
 layout_mode = 2
 min_value = 2.0
@@ -185,26 +186,31 @@ value = 100.0
 rounded = true
 allow_greater = true
 
-[node name="MiscLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="MiscLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=690912442]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Miscellaneous"
 
-[node name="MiscSeparator" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="MiscSeparator" type="HSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=6352654]
 layout_mode = 2
 
-[node name="SoundsOnChk" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="SoundsOnChk" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1956801338]
 unique_name_in_owner = true
 layout_mode = 2
 button_pressed = true
 text = "UI sounds"
 
-[node name="ShowColorbarsChk" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="ShowColorbarsChk" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1792432095]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Show colorbars"
 
-[node name="BondVisibilityCheck" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="BondVisibilityCheck" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1588813024]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Show bonds (experimental)"
+
+[node name="ShowPerfMetricsCheck" type="CheckButton" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=805040821]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Show performance metrics"

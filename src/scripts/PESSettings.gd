@@ -62,6 +62,9 @@ func _ready() -> void:
 
 
 func setup_already_there_values() -> void:
+	if not visible:
+		return
+	
 	Globals.setup_already_there_values(FIELD_SETTING_MAP)
 	_energy_units_changed(Globals.settings[&"energy_units"])
 	_iso_check_changed()
@@ -94,7 +97,7 @@ func _etow_changed(wstr: String) -> void:
 	
 	var parsed := str(_expression.execute())
 	%EtoWResult.text = parsed
-	Globals.settings[&"wtoe_exp"] = example_str
+	Globals.settings[&"wtoe_exp"] = wstr
 
 
 func _epsilon_changed(eps: String) -> void:

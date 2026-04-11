@@ -1,24 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8vyp1o7la7t2"]
+[gd_scene format=3 uid="uid://c8vyp1o7la7t2"]
 
 [ext_resource type="Script" uid="uid://dbjq5j8opojy2" path="res://scripts/FPSPlayer.gd" id="1_dry0r"]
 [ext_resource type="Texture2D" uid="uid://r7wiprop7c6u" path="res://assets/icons/crosshair.png" id="2_vdx3x"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vd8cu"]
 
-[node name="FPSPlayer" type="CharacterBody3D"]
+[node name="FPSPlayer" type="CharacterBody3D" unique_id=1265043329]
 script = ExtResource("1_dry0r")
 
-[node name="Collision" type="CollisionShape3D" parent="."]
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1091060082]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_vd8cu")
 
-[node name="Camera" type="Camera3D" parent="."]
+[node name="Camera" type="Camera3D" parent="." unique_id=1487919748]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 fov = 70.0
 
-[node name="Crosshair" type="TextureRect" parent="."]
+[node name="Crosshair" type="TextureRect" parent="." unique_id=1483428133]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.501961)
 offset_right = 40.0

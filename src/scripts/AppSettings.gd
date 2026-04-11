@@ -18,6 +18,7 @@ extends VBoxContainer
 	[%SoundsOnChk, &"ui_sounds_on"],
 	[%ShowColorbarsChk, &"show_colorbars"],
 	[%BondVisibilityCheck, &"show_bounds"],
+	[%ShowPerfMetricsCheck, &"show_perf_metrics"],
 ]
 
 

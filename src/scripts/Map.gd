@@ -27,17 +27,24 @@ var _must_push_energy := false
 var _profile_nodes: Array[Node3D] = []
 var _profile_values: Array[Vector3]
 var _clicking := false
-var _mouse_captured := true
 var _mouse_was_captured := true
 var _current_anchor: Node3D = null
 var _is_mep := false
 var _mep_start_chosen := false
 var _mep_start := Vector2.ZERO
 var _mep_end := Vector2.ZERO
+var _is_sd := false
 var _trajectory: TrajectoryData = null
 var _playback_enabled := false
 var _playback_paused := false
 var _file_access_web: FileAccessWeb = null
+
+var _mouse_captured : bool = true:
+	get:
+		return _mouse_captured
+	set(value):
+		_mouse_captured = value
+		_update_capture_state()
 
 # Each number corresponds to the index of the action menu item below in
 # const ACTIONS
@@ -46,26 +53,31 @@ enum Visibility {
 	DRAWING = 1,
 	ANCHORS = 5,
 	MEP = 7,
-	TRAJECTORY = 11,
-	FLY_MODE = 13,
+	SD = 11,
+	TRAJECTORY = 15,
+	FLY_MODE = 17,
 }
 
 const ACTION_SEPARATOR = &"-"
 var ACTIONS := [
-	[&"Show energy profile", _toggle_chart, true], # PROFILE
-	[&"Draw profile", _activate_chart, true], # DRAWING
+	[&"Show energy profile", _toggle_chart, true], # PROFILE 0
+	[&"Draw profile", _activate_chart, true], # DRAWING 1
 	[&"Save profile", _save_profile_action],
 	[&"Load profile", _load_profile_action],
 	[ACTION_SEPARATOR],
-	[&"Show critical points", _toggle_anchors, true], # ANCHORS
+	[&"Show critical points", _toggle_anchors, true], # ANCHORS 5
 	[ACTION_SEPARATOR],
-	[&"Show minimum energy path (MEP)", _toggle_mep, true], # MEP
+	[&"Show minimum energy path (MEP)", _toggle_mep, true], # MEP 7
 	[&"Compute MEP", _start_mep],
 	[&"MEP to profile", _mep_to_profile],
 	[ACTION_SEPARATOR],
-	[&"Trajectory playback", _toggle_trajectory, true], # TRAJECTORY
+	[&"Show steepest descent (SD)", _toggle_sd, true], # SD 11
+	[&"Compute SD", _steepest_descent],
+	[&"SD to profile", _sd_to_profile],
 	[ACTION_SEPARATOR],
-	[&"Fly mode", _toggle_free_fly, true], # FLY_MODE
+	[&"Trajectory playback", _toggle_trajectory, true], # TRAJECTORY 15
+	[ACTION_SEPARATOR],
+	[&"Fly mode", _toggle_free_fly, true], # FLY_MODE 17
 	[ACTION_SEPARATOR],
 	[&"Reset position to center", _set_player_pos],
 	[ACTION_SEPARATOR],
@@ -75,7 +87,6 @@ var ACTIONS := [
 
 func _ready() -> void:
 	_mouse_captured = true
-	_update_capture_state()
 	_update_ui_from_settings()
 	_connect_ui_signals()
 	_scale_map()
@@ -95,7 +106,8 @@ func _update_ui_from_settings() -> void:
 	)
 	%VersionLabel.text = "v%s   " % Globals.VERSION
 	%MouseKeyLabel.visible = not Globals.IS_TOUCH
-	%ChartContainer.set_ylabel("E (%s)" % Globals.settings[&"energy_units"])
+	%MetricsContainer.visible = Globals.settings[&"show_perf_metrics"]
+	# %ChartContainer.set_ylabel("E (%s)" % Globals.settings[&"energy_units"])
 
 
 func _connect_ui_signals() -> void:
@@ -127,9 +139,11 @@ func _toggle_advanced() -> void:
 
 func _toggle_small_chart() -> void:
 	print("> toggle small chart")
+	%ChartContainer.visible = false
 	%ChartContainer.size = (
 		CHART_SIZE_SMALL if %SmallChartButton.button_pressed else CHART_SIZE
 	)
+	%ChartContainer.visible = true # force update chart
 
 
 func _setup_profiling_snake() -> void:
@@ -155,6 +169,7 @@ func _on_window_size_changed() -> void:
 	%FPSPlayer.update_viewport()
 	%ConfigContainer.update_viewport()
 	%IconsContainer.update_viewport()
+	%MetricsContainer.update_viewport()
 	await get_tree().create_timer(0.1).timeout
 	#FIXME Godot likes to complain here about "non-equal opposite anchors".
 	%MainContainer.size = get_window().size
@@ -209,8 +224,9 @@ func _input(event: InputEvent) -> void:
 				_mep_start = grid_pos
 				%StartPointingArrow.visible = true
 				%EndPointingArrow.visible = true
-				%StartPointingArrow.position = (grid_coords_to_pos(grid_pos)
-												- %MinimumEnergyPath.position)
+				%StartPointingArrow.position = (
+					grid_coords_to_pos(grid_pos) - %MinimumEnergyPath.position
+				)
 				_mep_start_chosen = true
 			else:
 				_mep_end = grid_pos
@@ -218,7 +234,9 @@ func _input(event: InputEvent) -> void:
 				%StartPointingArrow.visible = false
 				%EndPointingArrow.visible = false
 				_mep_start_chosen = false
-				%MinimumEnergyPath.compute_and_draw(Vector2i(_mep_start), Vector2i(_mep_end))
+				%MinimumEnergyPath.compute_and_draw(
+					Vector2i(_mep_start), Vector2i(_mep_end)
+				)
 				await get_tree().create_timer(0.1).timeout
 				_is_mep = false
 		
@@ -238,7 +256,6 @@ func _input(event: InputEvent) -> void:
 	
 	if Input.is_action_just_pressed(&"toggle_capture"):
 		_mouse_captured = not _mouse_captured
-		_update_capture_state()
 	
 	if Input.is_action_just_pressed(&"save_profile"):
 		_save_profile_action()
@@ -260,7 +277,9 @@ func _input(event: InputEvent) -> void:
 			and event.is_released()
 			and _current_anchor != null):
 		%FPSPlayer.position = _current_anchor.position
-		notify_bubble("Teleported to " + str(pos_to_grid_coords(_current_anchor.position)))
+		notify_bubble(
+			"Teleported to " + str(pos_to_grid_coords(_current_anchor.position))
+		)
 		_current_anchor = null
 		
 		#notify_bubble(event.as_text() + "\ndouble tap: " + str(event.double_tap))
@@ -287,9 +306,7 @@ func _save_profile_action() -> void:
 		return
 
 	_mouse_was_captured = _mouse_captured
-	_mouse_captured = false
-	_update_capture_state()
-	
+	_mouse_captured = false	
 	
 	if Globals.IS_WEB:
 		var contents := _trajectory_to_string().to_utf8_buffer()
@@ -307,7 +324,6 @@ func _load_profile_action() -> void:
 	
 	_mouse_was_captured = _mouse_captured
 	_mouse_captured = false
-	_update_capture_state()
 	if Globals.IS_WEB:
 		_file_access_web.open()
 	else:
@@ -329,6 +345,7 @@ func _physics_process(delta: float) -> void:
 	_handle_molecule_scaling(delta)
 	_handle_anchor_selection(delta)
 	_handle_mep(delta)
+	_handle_sd(delta)
 	_handle_trajectory_playback(delta)
 
 	var alt_min: float = Globals.settings[&"energy_min"] * Globals.map_scale.y
@@ -337,8 +354,9 @@ func _physics_process(delta: float) -> void:
 		_set_player_pos()
 
 
-func get_pes_pos_from_laser_or_player(force_laser: bool = false,
-									  col_layer: int = MAP_COLLISION_LAYER):
+func get_pes_pos_from_laser_or_player(
+	force_laser: bool = false, col_layer: int = MAP_COLLISION_LAYER
+):
 	if force_laser or %FPSPlayer.free_flying:
 		var space_state = get_world_3d().direct_space_state
 		#var cam = %Camera3D
@@ -397,8 +415,6 @@ func _handle_mc_and_profile(_delta: float) -> void:
 	%EnergyCoordsLabel.text += "%s: %.3f\n" % [y_name, pes_coords.y]
 	%EnergyCoordsLabel.text += "E: %.3f %s" % [mc.energy, units]
 
-	%UIConsoleLabel.text = ""
-
 	if _is_drawing_profile and not %TrajectoryPath.visible:
 		if _must_push_energy:
 			%ChartContainer.push(mc.energy)
@@ -411,6 +427,7 @@ func _handle_mc_and_profile(_delta: float) -> void:
 			_update_profile()
 			_must_push_energy = false
 	
+	%UIConsoleLabel.text = ""
 	%UIConsoleLabel.text += "%.v + %.2v\n" % [ix_dic[&"ix"], ix_dic[&"weights"]]
 	%UIConsoleLabel.text += "Scale is %.2v\n" % Globals.global_scale_3d
 	%UIConsoleLabel.text += str(mc)
@@ -480,9 +497,8 @@ static func grid_coords_to_pos(grid_coords: Vector2) -> Vector3:
 	# FIXME these next two lines do not make sense
 	grid_coords -= size / 2.0 #+ Vector2(1, 1) * -0.25
 	var ix_dic = grid_coords_to_indices(grid_coords + size / 2.0)
-	var mc := indices_to_config(ix_dic[&"ix"], ix_dic[&"weights"])
-	var altitude = mc.energy if mc != null else 0.0
-	return (Vector3(grid_coords.x, altitude, grid_coords.y)
+	var energy := indices_to_energy(ix_dic[&"ix"], ix_dic[&"weights"])
+	return (Vector3(grid_coords.x, energy, grid_coords.y)
 			* Globals.global_scale_3d)
 
 
@@ -531,6 +547,23 @@ static func pes_coords_to_grid_coords(pes_pos: Vector2) -> Vector2:
 	grid_pos.x /= x_max - x_min
 	grid_pos.y /= y_max - y_min
 	return grid_pos * scaling
+
+
+static func indices_to_energy(ix: Vector2i, weights: Vector2) -> float:
+	if (ix.x < 0 or ix.x >= Globals.pes_data.size_x
+			or ix.y < 0 or ix.y >= Globals.pes_data.size_y):
+		return 0.0
+	
+	var e00 := Globals.pes_data.get_energy(ix.x, ix.y)
+	if (ix.x == Globals.pes_data.size_x - 1
+			or ix.y == Globals.pes_data.size_y - 1):
+		return e00
+	
+	var e10 := Globals.pes_data.get_energy(ix.x + 1, ix.y + 0)
+	var e01 := Globals.pes_data.get_energy(ix.x + 0, ix.y + 1)
+	var e11 := Globals.pes_data.get_energy(ix.x + 1, ix.y + 1)
+	
+	return Globals.bilerpf(Vector4(e00, e01, e10, e11), weights)
 
 
 static func indices_to_config(ix: Vector2i, weights: Vector2) -> MoleculeConfiguration:
@@ -610,24 +643,23 @@ func _set_frame_position() -> void:
 	const FIXED_MARGIN = -2.0
 	var map_scale := Globals.global_scale_3d
 	var arrow_frame := %ArrowFrame as ArrowFrame
-	var grid_size := sqrt(Globals.pes_data.size_x * Globals.pes_data.size_y) \
+	var grid_size := (
+		sqrt(Globals.pes_data.size_x * Globals.pes_data.size_y)
 		* sqrt(map_scale.x * map_scale.z)
-	arrow_frame.position.x = FIXED_MARGIN - Globals.pes_data.size_x / MARGIN_FACTOR * map_scale.x
-	arrow_frame.position.z = FIXED_MARGIN - Globals.pes_data.size_y / MARGIN_FACTOR * map_scale.z
+	)
+	arrow_frame.position.x = (
+		FIXED_MARGIN - Globals.pes_data.size_x / MARGIN_FACTOR * map_scale.x
+	)
+	arrow_frame.position.z = (
+		FIXED_MARGIN - Globals.pes_data.size_y / MARGIN_FACTOR * map_scale.z
+	)
 	arrow_frame.scale = grid_size * Vector3.ONE / 10
-	arrow_frame.x_label = _format_label("x")
-	arrow_frame.y_label = _format_label("y")
-
-
-func _format_label(prefix: String) -> String:
-	return Globals.settings[prefix + "_name"]
+	arrow_frame.x_label = Globals.settings[&"x_name"]
+	arrow_frame.y_label = Globals.settings[&"y_name"]
 
 
 func _update_profile() -> void:
 	var num_points = Globals.settings[&"num_sample_points"]
-	%TrajectoryPath.follower.loop = Globals.settings[&"playback_loop"]
-	var curve := %TrajectoryPath.curve as Curve3D
-	curve.clear_points()
 	
 	for i in range(min(num_points, len(_profile_values))):
 		var val_i := _profile_values[i]
@@ -635,8 +667,6 @@ func _update_profile() -> void:
 		_profile_nodes[i].visible = true
 		if val_i == _profile_values[i - 1]:
 			continue
-		
-		curve.add_point(val_i)
 
 
 func _toggle_chart(force_on: bool = false) -> void:
@@ -648,7 +678,7 @@ func _toggle_chart(force_on: bool = false) -> void:
 	%PointerSphere.visible = !was_visible
 	%ProfilingTrace.visible = !was_visible
 	%ChartContainer.visible = !was_visible
-
+	
 	if was_visible:
 		_activate_chart(true) # true means force off
 
@@ -686,13 +716,14 @@ func _go_to_menu() -> void:
 	print("> last known pos: ", last_pos)
 	
 	_mouse_captured = false
-	_update_capture_state()
 	get_tree().change_scene_to_file(MAIN_MENU_PATH)
 	#get_tree().change_scene_to_packed(MAIN_MENU_SCENE)
 
 
 func _scale_up_or_down(increment: float) -> void:
-	Globals.settings[&"global_scale"] = maxf(Globals.settings[&"global_scale"] + increment, 0.01)
+	Globals.settings[&"global_scale"] = (
+		maxf(Globals.settings[&"global_scale"] + increment, 0.01)
+	)
 	_scale_map()
 
 
@@ -703,6 +734,22 @@ func _clear_profile() -> void:
 	for sphere in _profile_nodes:
 		sphere.position = Vector3.ZERO
 		sphere.visible = false
+
+
+func _show_profile(path: Array) -> void:
+	_clear_profile()
+	for p in path:
+		var pes_pos := grid_coords_to_pos(p)
+		_profile_values.push_back(pes_pos)
+		pes_pos.y /= Globals.map_scale.y
+		%ChartContainer.energy_profile.push_back(pes_pos.y)
+		if len(_profile_values) > Globals.settings[&"num_sample_points"]:
+			_profile_values.pop_front()
+	
+	_update_profile()
+	_toggle_chart(true)
+	await get_tree().create_timer(0.1).timeout
+	%ChartContainer.update_plot()
 
 
 func _save_profile(path: String) -> void:
@@ -717,7 +764,6 @@ func _save_profile(path: String) -> void:
 	notify_bubble("File saved to " + ProjectSettings.globalize_path(path))
 
 	_mouse_captured = _mouse_was_captured
-	_update_capture_state()
 
 
 func _trajectory_to_string() -> String:
@@ -757,7 +803,6 @@ func _load_profile(path: String) -> void:
 	
 	_update_profile()
 	_mouse_captured = _mouse_was_captured
-	_update_capture_state()
 	notify_bubble("Trajectory loaded from " + ProjectSettings.globalize_path(path))
 	_toggle_chart(true)
 
@@ -786,6 +831,7 @@ func _update_actions_check_states() -> void:
 	pop.set_item_checked(Visibility.DRAWING, _is_drawing_profile)
 	pop.set_item_checked(Visibility.ANCHORS, %Anchors.visible)
 	pop.set_item_checked(Visibility.MEP, %MinimumEnergyPath.visible)
+	pop.set_item_checked(Visibility.SD, %SteepestDescent.visible)
 	pop.set_item_checked(Visibility.TRAJECTORY, _playback_enabled)
 	pop.set_item_checked(Visibility.FLY_MODE, %FPSPlayer.free_flying)
 
@@ -824,7 +870,6 @@ func _toggle_mep(force_on: bool = false) -> void:
 	
 	if not %MinimumEnergyPath.visible:
 		_mouse_captured = false
-		_update_capture_state()
 	
 	%MepIcon.visible = %MinimumEnergyPath.visible
 
@@ -834,31 +879,74 @@ func _start_mep() -> void:
 	_toggle_mep(true)
 	_is_mep = %MinimumEnergyPath.visible
 	_mouse_captured = not _is_mep
-	_update_capture_state()
 
 
 func _mep_to_profile() -> void:
 	var mep: MinimumEnergyPath = %MinimumEnergyPath
 	var path := mep.get_resample_mep()
-	
-	_clear_profile()
-	for p in path:
-		var pes_pos := grid_coords_to_pos(p)
-		_profile_values.push_back(pes_pos)
-		pes_pos.y /= Globals.map_scale.y
-		%ChartContainer.energy_profile.push_back(pes_pos.y)
-		if len(_profile_values) > Globals.settings[&"num_sample_points"]:
-			_profile_values.pop_front()
-	
-	_update_profile()
-	
+	_show_profile(path)
 	_is_drawing_profile = false
-	%MinimumEnergyPath.visible = false
-	_toggle_chart(true)
 	_clicking = false
+	mep.visible = false
+
+
+func _toggle_sd(force_on: bool = false) -> void:
+	print("> toggle sd visibility")
+	
+	var sd_visible = %SteepestDescent.visible
+	%SteepestDescent.visible = force_on or not sd_visible
+
+
+func _steepest_descent() -> void:
+	print("> steepest descent")
+	_toggle_sd(true)
+	_is_sd = true
+	%SDArrow.visible = true
+	_mouse_captured = false
+
+
+func _confirm_sd() -> void:
+	%SDArrow.visible = false
+	var aimed_object = get_pes_pos_from_laser_or_player(true)
+	if aimed_object:
+		%SteepestDescent.compute_and_draw(
+			pos_to_grid_coords(aimed_object.position)
+		)
+		_is_sd = false
+
+
+func _handle_sd(_delta: float) -> void:
+	if not _is_sd:
+		return
+	
+	var aimed_object = get_pes_pos_from_laser_or_player(true)
+	if aimed_object:
+		%SDArrow.position = aimed_object.position
+		%SteepestDescent.compute_and_draw(
+			pos_to_grid_coords(aimed_object.position)
+		)
+	
+	if _clicking:
+		_confirm_sd()
+
+
+func _sd_to_profile() -> void:
+	var sd: SteepestDescent = %SteepestDescent
+	var path := sd.get_resample_sd_path()
+	_show_profile(path)
+	_is_drawing_profile = false
+	_clicking = false
+	sd.visible = false
 
 
 func _toggle_trajectory() -> void:
+	%TrajectoryPath.follower.loop = Globals.settings[&"playback_loop"]
+	var curve := %TrajectoryPath.curve as Curve3D
+	curve.clear_points()
+	
+	for prof_val in _profile_values:
+		curve.add_point(prof_val)
+		
 	if %TrajectoryPath.is_empty():
 		notify_bubble("No profile to follow.")
 		print("> trajectory playback cancelled; nothing to play back")
@@ -870,6 +958,7 @@ func _toggle_trajectory() -> void:
 	%SliderContainer.visible = _playback_enabled
 	%TrajectoryPath.follower.progress_ratio = 0.0
 	%PlaySlider.value = 0.0
+	
 	print("> toggled trajectory playback to ", _playback_enabled)
 
 
@@ -923,9 +1012,9 @@ func _compute_mc_from_trajectory(progress_ratio: float) -> MoleculeConfiguration
 	var mc1 := _trajectory.configurations[ix + 1]
 	mc0.energy = lerpf(mc0.energy, mc1.energy, weight)
 	for i in len(mc0.positions):
-		mc0.positions[i].position = lerp(mc0.positions[i].position,
-										 mc1.positions[i].position,
-										 weight)
+		mc0.positions[i].position = lerp(
+			mc0.positions[i].position, mc1.positions[i].position, weight
+		)
 	return mc0
 
 
