@@ -17,3 +17,5 @@ mono_crash.*.json
 *.tmp
 
 package-lock.json
+
+builds/
