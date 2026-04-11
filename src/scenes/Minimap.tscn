@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://kergsarc0yic"]
+[gd_scene format=3 uid="uid://kergsarc0yic"]
 
 [ext_resource type="Script" uid="uid://cni2bj5iya8xf" path="res://scripts/Minimap.gd" id="1_cvo86"]
 [ext_resource type="Texture2D" uid="uid://r7wiprop7c6u" path="res://assets/icons/crosshair.png" id="1_yfyr0"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://dj60ub4js4ws5" path="res://assets/icons/arrow-right.svg" id="5_4iigp"]
 [ext_resource type="Gradient" uid="uid://diquexvk18mkg" path="res://assets/terrain/terrain_gradient.tres" id="6_g8ca0"]
 [ext_resource type="Gradient" uid="uid://dequw8dcrvann" path="res://assets/terrain/ocean_gradient.tres" id="7_l6gx0"]
+[ext_resource type="Material" uid="uid://b5whys8giy6b" path="res://assets/post_process/post_process_shader_mat.tres" id="8_yef4h"]
+[ext_resource type="Script" uid="uid://brudy4171db6s" path="res://scripts/PostProcessing.gd" id="9_y05n1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yef4h"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jujhc"]
 
@@ -17,18 +21,24 @@ width = 200
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_y05n1"]
 gradient = ExtResource("7_l6gx0")
 
-[node name="Minimap" type="GridContainer"]
-offset_right = 219.0
-offset_bottom = 227.0
-columns = 2
+[node name="Minimap" type="PanelContainer" unique_id=466765883]
+offset_left = 16.0
+offset_top = 385.0
+offset_right = 372.0
+offset_bottom = 766.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_yef4h")
 script = ExtResource("1_cvo86")
 
-[node name="YBox" type="VBoxContainer" parent="."]
+[node name="Grid" type="GridContainer" parent="." unique_id=1113727599]
+layout_mode = 2
+columns = 2
+
+[node name="YBox" type="VBoxContainer" parent="Grid" unique_id=1932305701]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="UpArrow" type="TextureRect" parent="YBox"]
+[node name="UpArrow" type="TextureRect" parent="Grid/YBox" unique_id=1917459598]
 custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 size_flags_vertical = 3
@@ -36,12 +46,12 @@ texture = ExtResource("2_uhfg6")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="YLabel" type="Label" parent="YBox"]
+[node name="YLabel" type="Label" parent="Grid/YBox" unique_id=945287519]
 unique_name_in_owner = true
 layout_mode = 2
 text = "y"
 
-[node name="MapRect" type="TextureRect" parent="."]
+[node name="MapRect" type="TextureRect" parent="Grid" unique_id=1355617697]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
@@ -51,7 +61,7 @@ texture = SubResource("PlaceholderTexture2D_jujhc")
 expand_mode = 1
 script = ExtResource("2_0pgu0")
 
-[node name="PosMarker" type="TextureRect" parent="MapRect"]
+[node name="PosMarker" type="TextureRect" parent="Grid/MapRect" unique_id=1603253851]
 unique_name_in_owner = true
 z_index = 1
 layout_mode = 1
@@ -66,7 +76,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_yfyr0")
 
-[node name="CoordsLabel" type="Label" parent="MapRect"]
+[node name="CoordsLabel" type="Label" parent="Grid/MapRect" unique_id=2057084393]
 unique_name_in_owner = true
 z_index = 1
 layout_mode = 1
@@ -79,7 +89,7 @@ offset_bottom = 23.0
 grow_horizontal = 2
 text = "0.0, 0.0"
 
-[node name="CritsContainer" type="Control" parent="MapRect"]
+[node name="CritsContainer" type="Control" parent="Grid/MapRect" unique_id=1217409177]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -90,25 +100,25 @@ grow_vertical = 2
 mouse_filter = 1
 mouse_force_pass_scroll_events = false
 
-[node name="Spacer" type="Control" parent="."]
+[node name="Spacer" type="Control" parent="Grid" unique_id=1820386030]
 layout_mode = 2
 
-[node name="XBox" type="HBoxContainer" parent="."]
+[node name="XBox" type="HBoxContainer" parent="Grid" unique_id=1764762266]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="XLabel" type="Label" parent="XBox"]
+[node name="XLabel" type="Label" parent="Grid/XBox" unique_id=344620992]
 unique_name_in_owner = true
 layout_mode = 2
 text = "x"
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="XBox"]
+[node name="MarginContainer" type="MarginContainer" parent="Grid/XBox" unique_id=1735380372]
 layout_mode = 2
 theme_override_constants/margin_left = 6
 theme_override_constants/margin_top = 4
 
-[node name="RightArrow" type="TextureRect" parent="XBox/MarginContainer"]
+[node name="RightArrow" type="TextureRect" parent="Grid/XBox/MarginContainer" unique_id=1620276243]
 custom_minimum_size = Vector2(12, 0)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -117,51 +127,61 @@ texture = ExtResource("5_4iigp")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="PosSpacer" type="Control" parent="."]
+[node name="PosSpacer" type="Control" parent="Grid" unique_id=1448400390]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="PosContainer" type="HBoxContainer" parent="."]
+[node name="PosContainer" type="HBoxContainer" parent="Grid" unique_id=1036204501]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="MinPosLabel" type="Label" parent="PosContainer"]
+[node name="MinPosLabel" type="Label" parent="Grid/PosContainer" unique_id=1149169150]
 unique_name_in_owner = true
 layout_mode = 2
 text = " +0.00"
 
-[node name="PosTextureRect" type="TextureRect" parent="PosContainer"]
+[node name="PosTextureRect" type="TextureRect" parent="Grid/PosContainer" unique_id=2080702749]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = SubResource("GradientTexture1D_yef4h")
 
-[node name="MaxPosLabel" type="Label" parent="PosContainer"]
+[node name="MaxPosLabel" type="Label" parent="Grid/PosContainer" unique_id=342789802]
 unique_name_in_owner = true
 layout_mode = 2
 text = "+1.00"
 
-[node name="NegSpacer" type="Control" parent="."]
+[node name="NegSpacer" type="Control" parent="Grid" unique_id=645599317]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="NegContainer" type="HBoxContainer" parent="."]
+[node name="NegContainer" type="HBoxContainer" parent="Grid" unique_id=753546537]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="MinNegLabel" type="Label" parent="NegContainer"]
+[node name="MinNegLabel" type="Label" parent="Grid/NegContainer" unique_id=2141975745]
 unique_name_in_owner = true
 layout_mode = 2
 text = "-1.00"
 
-[node name="PosTextureRect" type="TextureRect" parent="NegContainer"]
+[node name="PosTextureRect" type="TextureRect" parent="Grid/NegContainer" unique_id=930963379]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = SubResource("GradientTexture1D_y05n1")
 flip_h = true
 
-[node name="MaxNegLabel" type="Label" parent="NegContainer"]
+[node name="MaxNegLabel" type="Label" parent="Grid/NegContainer" unique_id=915064339]
 unique_name_in_owner = true
 layout_mode = 2
 text = "-0.00"
+
+[node name="PostProcessingLayer" type="ColorRect" parent="." unique_id=552508730]
+unique_name_in_owner = true
+material = ExtResource("8_yef4h")
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("9_y05n1")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://clcn7vw6ro5uy"]
+[gd_scene format=3 uid="uid://clcn7vw6ro5uy"]
 
 [ext_resource type="Script" uid="uid://dadq6assoe5ie" path="res://scripts/TrajectoryPath.gd" id="1_w7knp"]
 [ext_resource type="PackedScene" uid="uid://b65asf4vqjofq" path="res://scenes/PointingArrow.tscn" id="2_kotn0"]
@@ -8,11 +8,11 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kotn0"]
 albedo_color = Color(1, 0, 0, 1)
 
-[node name="TrajectoryPath" type="Path3D"]
+[node name="TrajectoryPath" type="Path3D" unique_id=1004942222]
 curve = SubResource("Curve3D_tw0a1")
 script = ExtResource("1_w7knp")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="."]
+[node name="PathFollow3D" type="PathFollow3D" parent="." unique_id=1453313171]
 unique_name_in_owner = true
 transform = Transform3D(0.999996, 0, 0, 0, 0.999998, 0, 0, 0, 1, 0, 0, 0)
 rotation_mode = 0
@@ -20,5 +20,5 @@ cubic_interp = false
 loop = false
 tilt_enabled = false
 
-[node name="PointingArrow" parent="PathFollow3D" instance=ExtResource("2_kotn0")]
+[node name="PointingArrow" parent="PathFollow3D" unique_id=1598884557 instance=ExtResource("2_kotn0")]
 material = SubResource("StandardMaterial3D_kotn0")

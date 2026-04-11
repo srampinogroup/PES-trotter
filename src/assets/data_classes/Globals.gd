@@ -81,6 +81,7 @@ var settings := {
 	&"ui_sounds_on": true,
 	&"show_colorbars": false,
 	&"show_bounds": false,
+	&"show_perf_metrics": false,
 }
 
 var PERSISTED_KEYS = settings.keys()

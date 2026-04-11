@@ -1,4 +1,4 @@
-extends GridContainer
+extends PanelContainer
 
 
 @export var x_label: String:
@@ -16,6 +16,14 @@ extends GridContainer
 
 func _ready() -> void:
 	update_labels()
+	visibility_changed.connect(_visibility_changed)
+
+
+func _visibility_changed() -> void:
+	if not is_visible_in_tree():
+		return
+	
+	%PostProcessingLayer.update_shader()
 
 
 func update_texture_from_pes() -> void:

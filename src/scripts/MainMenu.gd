@@ -13,7 +13,7 @@ var _file_access_web: FileAccessWeb = null
 var _url_timer: Timer
 
 
-func eplog(s: String) -> void:
+func console_log(s: String) -> void:
 	var append_text = func():
 		%TextEdit.text += s + "\n"
 		%TextEdit.set_v_scroll(len(%TextEdit.text))
@@ -33,7 +33,7 @@ func _ready() -> void:
 		%RunButton.text = "Resume"
 	
 	_update_visibility_from_os()
-	eplog("> Ready with version " + Globals.VERSION)
+	console_log("> Ready with version " + Globals.VERSION)
 	
 	_process_url_params()
 
@@ -87,7 +87,7 @@ func _exit_tree() -> void:
 
 
 func _on_open_pes() -> void:
-	eplog("> Open clicked")
+	console_log("> Open clicked")
 	%FileDialog.popup_centered()
 	
 	
@@ -96,7 +96,7 @@ func _on_file_selected(path: String) -> void:
 	if _thread.is_started():
 		_thread.wait_to_finish()
 	
-	eplog("> File " + path + " selected. Parsing...")
+	console_log("> File " + path + " selected. Parsing...")
 	%RunButton.text = "Run"
 	_thread.start(_load_pes_async.bind(path))
 
@@ -108,16 +108,16 @@ func _on_pes_progressed(progress: float, total: float) -> void:
 
 
 func _load_pes_async(path: String) -> void:
-	eplog("> Parsing PES...")
+	console_log("> Parsing PES...")
 	_set_progress_indeterminate.call_deferred()
 	Globals.clear_PESData()
 	_pes_data = null
-	_pes_data = PESData.from_file(path, eplog)
+	_pes_data = PESData.from_file(path, console_log)
 	_on_pes_loaded.call_deferred(path)
 
 
 func _on_pes_loaded(pes_path: String) -> void:
-	eplog("PES parsed, grid is %d x %d:" % [_pes_data.size_x, _pes_data.size_y])
+	console_log("PES parsed, grid is %d x %d:" % [_pes_data.size_x, _pes_data.size_y])
 	Globals.pes_path = pes_path
 	Globals.pes_data = _pes_data
 	var energies := Array(_pes_data.energies)
@@ -128,8 +128,8 @@ func _on_pes_loaded(pes_path: String) -> void:
 												 _pes_data.size_y - 1)
 	Globals.pes_criticals.clear()
 	
-	eplog("First configuration is:")
-	eplog("\n".join(_pes_data.configurations[0]))
+	console_log("First configuration is:")
+	console_log("\n".join(_pes_data.configurations[0]))
 	
 	# FIXME will fail if ".pes" contained in path
 	var path_settings = pes_path.replacen(
@@ -140,7 +140,7 @@ func _on_pes_loaded(pes_path: String) -> void:
 		Globals.load_config(path_settings)
 		#%"PES settings".setup_already_there_values()
 		#%"App settings".setup_already_there_values()
-		eplog("> loaded demo config from " + path_settings)
+		console_log("> loaded demo config from " + path_settings)
 	
 	%"PES settings".setup_minimap()
 	
@@ -148,13 +148,13 @@ func _on_pes_loaded(pes_path: String) -> void:
 	%RunButton.text = "Run"
 	%RunButton.disabled = false
 	%ProgressBar.indeterminate = false
-	eplog("> all done.")
+	console_log("> all done.")
 
 
 func _on_clipboard_pressed() -> void:
-	eplog("> Clipboard pressed")
+	console_log("> Clipboard pressed")
 	var clipboard := DisplayServer.clipboard_get()
-	eplog("%d bytes from clipboard received" % len(clipboard))
+	console_log("%d bytes from clipboard received" % len(clipboard))
 	var local_file := FileAccess.open(CLIPBOARD_FILE_NAME, FileAccess.WRITE)
 	local_file.store_string(clipboard)
 	_load_pes_async.call_deferred(CLIPBOARD_FILE_NAME)
@@ -162,20 +162,20 @@ func _on_clipboard_pressed() -> void:
 
 
 func _on_raw_input_pressed() -> void:
-	eplog("> Raw input popup open")
+	console_log("> Raw input popup open")
 	%PastePopupPanel.show()
 
 
 func _on_popup_cancel() -> void:
-	eplog("> Popup cancel")
+	console_log("> Popup cancel")
 	%PastePopupPanel.hide()
 	
 	
 func _on_popup_load() -> void:
-	eplog("> Popup load")
+	console_log("> Popup load")
 	
 	var file_contents: String = %PopupTextEdit.text
-	eplog("%d bytes from pasted contents" % len(file_contents))
+	console_log("%d bytes from pasted contents" % len(file_contents))
 	var local_file := FileAccess.open(RAW_FILE_NAME, FileAccess.WRITE)
 	local_file.store_string(file_contents)
 	%ProgressBar.indeterminate = false
@@ -185,16 +185,16 @@ func _on_popup_load() -> void:
 	
 	
 func _on_upload_pressed() -> void:
-	eplog("> Upload button pressed")
+	console_log("> Upload button pressed")
 	if OS.get_name() != "Web":
-		eplog("*** Can only upload on Web version.")
+		console_log("*** Can only upload on Web version.")
 		return
 	
 	_file_access_web.open()
 
 
 func _on_upload_started(file_name: String) -> void:
-	eplog("> Starting uploading " + file_name)
+	console_log("> Starting uploading " + file_name)
 	%ProgressBar.indeterminate = false
 
 
@@ -203,9 +203,9 @@ func _on_upload_finished(
 		type: String,
 		base64_data: String,
 	) -> void:
-	eplog("> Uploading of " + file_name + " finished")
+	console_log("> Uploading of " + file_name + " finished")
 	var contents := Marshalls.base64_to_raw(base64_data)
-	eplog("File %s of type %s received (%s bytes)" %
+	console_log("File %s of type %s received (%s bytes)" %
 		  [file_name, type, len(contents)])
 	
 	_load_from_bytes(contents)
@@ -223,11 +223,11 @@ func _on_upload_progressed(current_bytes: int, total_bytes: int) -> void:
 
 
 func _on_upload_errored() -> void:
-	eplog("ERROR: Something went wrong during upload. Try again?")
+	console_log("ERROR: Something went wrong during upload. Try again?")
 
 
 func _on_run() -> void:
-	eplog("> loading map...")
+	console_log("> loading map...")
 	%ProgressBar.indeterminate = true
 	%RunButton.text = "Loading..."
 	ResourceLoader.load_threaded_request(MAP_SCENE_PATH)
@@ -270,32 +270,32 @@ func _on_demo_pressed() -> void:
 
 func _on_url_open() -> void:
 	var url := %FieldURL.text as String
-	eplog("> Open URL pressed with URL %s" % url)
+	console_log("> Open URL pressed with URL %s" % url)
 	#FIXME check if this block main thread
 	var error = %HTTPRequest.request(url)
 	if error != OK:
 		var err_str := "An error occurred in the HTTP request (%d: %s)." %\
 					   [error, error_string(error)]
-		eplog(err_str)
+		console_log(err_str)
 		push_error(err_str)
 	
 	_url_timer.start()
 
 
 func _fetch_from_url_complete(_result, response_code, _headers, body) -> void:
-	eplog("Fetched from %s:" % %FieldURL.text)
+	console_log("Fetched from %s:" % %FieldURL.text)
 	
 	_url_timer.stop()
 	
 	if response_code != HTTPClient.RESPONSE_OK:
 		var err := "Unable to load file from provided URL. (error %d)" %\
 					response_code
-		eplog(err)
+		console_log(err)
 		push_error(err)
 	
 	_load_from_bytes(body)
 	%RunButton.text = "Run"
-	eplog("Loaded, you can press run")
+	console_log("Loaded, you can press run")
 	
 
 func _load_from_bytes(bytes: PackedByteArray) -> void:
@@ -331,7 +331,7 @@ func _process_url_params() -> void:
 	
 	var window := JavaScriptBridge.get_interface("window")
 	var params := Globals.parse_url_params(window.location.search)
-	eplog("> URL parameters are %s" % params)
+	console_log("> URL parameters are %s" % params)
 	
 	var demo_name: String = params.get(DEMO_PARAM_NAME, "")
 	if not demo_name:

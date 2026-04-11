@@ -87,8 +87,7 @@ func compute_and_draw(start: Vector2i, end: Vector2i) -> void:
 
 
 ## Returns the path as an array of new_size Vector2
-func get_resample_mep(new_size: int = Globals.settings[&"num_sample_points"]) \
-		-> Array:
+func get_resample_mep(new_size: int = Globals.settings[&"num_sample_points"]) -> Array:
 	var fpath: Array[Vector2] = []
 	for p in path:
 		fpath.append(Vector2(p))

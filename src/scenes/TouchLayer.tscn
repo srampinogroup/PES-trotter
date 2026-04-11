@@ -1,15 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv87y5njjypfy"]
+[gd_scene format=3 uid="uid://dv87y5njjypfy"]
 
 [ext_resource type="Script" uid="uid://cha1mubr12s6o" path="res://scripts/TouchLayer.gd" id="1_eiogp"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_p60i8"]
 
-[node name="TouchLayer" type="CanvasLayer"]
+[node name="TouchLayer" type="CanvasLayer" unique_id=898484448]
 visible = false
 script = ExtResource("1_eiogp")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+[node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=1300283702]
 
-[node name="LeftJoystick" parent="TouchScreenButton" instance=ExtResource("1_p60i8")]
+[node name="LeftJoystick" parent="TouchScreenButton" unique_id=2088622004 instance=ExtResource("1_p60i8")]
 unique_name_in_owner = true
 offset_left = 4.0
 offset_top = 344.0
@@ -20,7 +20,7 @@ action_right = "move_right"
 action_up = "move_forward"
 action_down = "move_backward"
 
-[node name="RightJoystick" parent="TouchScreenButton" instance=ExtResource("1_p60i8")]
+[node name="RightJoystick" parent="TouchScreenButton" unique_id=809262050 instance=ExtResource("1_p60i8")]
 unique_name_in_owner = true
 offset_left = 847.0
 offset_top = 347.0

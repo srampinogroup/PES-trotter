@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://62b0d37mo04v"]
+[gd_scene format=3 uid="uid://62b0d37mo04v"]
 
 [ext_resource type="Script" uid="uid://vyeo4mfk5puc" path="res://scripts/NotificationBubble.gd" id="1_crb4c"]
 
@@ -13,7 +13,7 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
-[node name="NotificationBubble" type="Label"]
+[node name="NotificationBubble" type="Label" unique_id=792925823]
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
