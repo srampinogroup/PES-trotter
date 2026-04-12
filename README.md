@@ -1,8 +1,7 @@
 # PES-trotter
 
 <p align="center">
- <img width="1135" height="423" alt="PES-trotter title image"
- src="https://github.com/user-attachments/assets/32355cce-61df-4fb0-9f72-f0729553ba37" />
+<img width="1135" height="423" alt="PES-trotter title image" src="https://github.com/user-attachments/assets/a1d88a4a-94e3-4f13-b6d0-714e3b5da181" />
 </p>
 
 ![GitHub License](https://img.shields.io/github/license/srampinogroup/PES-trotter)
