@@ -1,6 +1,6 @@
-# Gauss to XYZ
+# Gaussian to XYZ
 
-This program allows to extract from a Gauss 12 output log the
+This program allows to extract from a Gaussian 12 output log the
 potential-energy surface information and store it in a XYZ file with
 specifications specified below.
 
@@ -13,11 +13,11 @@ compatible surfaces.
 
 ## Files
 
-* `gauss_to_xyz.py`: main script. Usage:
+* `gaussian_to_xyz.py`: main script. Usage:
 ```bash
-./gauss_to_xyz.py input.log output.xyz
+./gaussian_to_xyz.py input.log output.xyz
 ```
-* `test_gauss_to_xyz.py`: tests for above script functions.
+* `test_gaussian_to_xyz.py`: tests for above script functions.
 * `plot_pes.py`: utility script to plot a PES in XYZ format.
 
 
