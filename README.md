@@ -10,7 +10,7 @@
 PES-trotter is a mutli-plateform software designed to allow the
 exploration of Potential Energy Surfaces (PES). It aims at
 facilitating the exploration of the different features of a PES by
-allowing 3-D navigation, energy profiling, Minimum Energy Path (MEP)
+allowing 3D navigation, energy profiling, Minimum Energy Path (MEP)
 computation and trajectory playback.
 
 ## Online version is now live
@@ -22,7 +22,7 @@ You can test the project via web at this page:
 
 or run from source with the
 [Godot editor](https://godotengine.org/download)
-v4.5-stable or newer.
+v4.6.2-stable or newer.
 
 The user guide is available below. Feel free to open an issue if you
 found a bug.
@@ -104,7 +104,7 @@ action **Trajectory playback**. Press again to exit this mode.
    points**.
    2. You can press the newly displayed anchors to teleport to them
    and see the specific configuration at this point.
-10. Finally there is an A* estimate of a minimum energy path (MEP)
+10. There is an A* estimate of a minimum energy path (MEP)
 available. With this feature, you can compute the minimum energy path
 a complex would take during e.g. a reaction.
     1. First, enable the user interface to select the start and final
@@ -114,7 +114,9 @@ a complex would take during e.g. a reaction.
     4. You have now the MEP in green. You can toggle its visibility
     with the **Show minimum energy path (MEP)** option.
     5. Convert the MEP to an energy profile with the action **MEP to
-    profile**. You can now use the trajectory features on this path.   
+    profile**. You can now use the trajectory features on this path.
+11. Alternatively, you can compute the steepest-descent path with
+    the **Compute SD** action.
 
 # User guide
 
@@ -277,13 +279,14 @@ For drawing a trajectory by hand we recommend activating fly mode
 (`F`) to take a view from the top. Toggle the profiling mode and draw
 onto the PES. Toggle the profiling mode again to leave drawing mode.
 
-### Computing minimum energy path
+### Computing minimum energy paths
 
 Again we recommend taking some distance in fly mode. Toggle the
-minimum energy path (MEP) with `O`. Click to set the starting point,
-click again on the end point.  Press `O` again to leave the mode.
+minimum energy path (MEP) (`O`). Click to set the starting point,
+click again on the end point.
 You can now create a trajectory from the MEP by selecting the
 corresponding action in the menu.
+The same steps can be used with the steepest-descent method.
 
 ### Playback of the trajectory
 
