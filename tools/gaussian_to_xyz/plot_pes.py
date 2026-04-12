@@ -32,7 +32,7 @@ def read_pes_from_xyz(path: str) -> pd.DataFrame:
 
 
 def main() -> None:
-  df_dat = read_pes_from_dat("Glycine_param_BB/de.tsv")
+  df_dat = read_pes_from_dat("glycine.tsv")
   df_xyz = read_pes_from_xyz("glycine.xyz")
 
   for ti, df in [("DAT file", df_dat), ("XYZ file", df_xyz)]:
