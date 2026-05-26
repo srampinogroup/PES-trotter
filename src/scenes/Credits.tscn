@@ -22,7 +22,7 @@ size_flags_vertical = 3
 [node name="InfoLabel" type="Label" parent="VBoxContainer" unique_id=1634990288]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
-text = "Code info"
+text = "Article and code info"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=340312156]
 layout_mode = 2
@@ -31,7 +31,9 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 bbcode_enabled = true
-text = "The project is hosted on GitHub at this address: [url]https://github.com/srampinogroup/PES-trotter[/url] along with a user guide. Source code will soon be available."
+text = "The project is hosted on GitHub at this address: [url]https://github.com/srampinogroup/PES-trotter[/url] along with a user guide.
+
+Privat E, Rawat AMS, Ballotta B, Polimeno A, Rampino S, \"PES-trotter: A cross-platform open-source application for the analysis of molecular processes on 3D potential-energy landscapes\", [i]Journal of Computational Chemistry[i] 47, e70397 (2026), DOI: [url]https://doi.org/10.1002/jcc.70397[/url]"
 fit_content = true
 
 [node name="LicenseLabel" type="Label" parent="VBoxContainer" unique_id=436071189]
