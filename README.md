@@ -12,7 +12,14 @@ facilitating the exploration of the different features of a PES by
 allowing 3D navigation, energy profiling, Minimum Energy Path (MEP)
 computation and trajectory playback.
 
-## Online version is now live
+A full description of the software is in the open-access article:
+
+Privat E, Rawat AMS, Ballotta B, Polimeno A, Rampino S,
+"PES-trotter: A cross-platform open-source application for the analysis of molecular processes on 3D potential-energy landscapes",
+*Journal of Computational Chemistry* 47, e70397 (2026),
+DOI: https://doi.org/10.1002/jcc.70397
+
+## Online version is live
 
 This is the official repository for the open-source PES-trotter app.
 You can test the project via web at this page:
