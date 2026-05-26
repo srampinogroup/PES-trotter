@@ -36,7 +36,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "Welcome to the PES-trotter application beta version, thank you for testing this software. Please keep in mind that this is a beta test version of the program: you might encounter bugs and UI awkwardness, especially in web browsers. We currently do not support Safari on macOS, so please use another browser. If you have trouble capturing the mouse, please insist with the [b]F12[/b] key while making sure the application is in focus. For the menu, the [b]Esc[/b] key might need to be pressed twice for the same reason.
+text = "Welcome to the PES-trotter application beta version, thank you for testing this software. Please keep in mind that this is a beta test version of the program: you might encounter bugs and UI awkwardness, especially in web browsers. We currently do not support Safari on macOS, so please use another browser. If you have trouble capturing the mouse, please insist with the [b]Enter[/b] or [b]F12[/b] key while making sure the application is in focus. For the menu, the [b]Esc[/b] key might need to be pressed twice for the same reason.
 
 You can find a user guide at [url]https://github.com/srampinogroup/PES-trotter[/url].
 

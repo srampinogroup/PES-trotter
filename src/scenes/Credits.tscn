@@ -33,7 +33,7 @@ layout_mode = 2
 bbcode_enabled = true
 text = "The project is hosted on GitHub at this address: [url]https://github.com/srampinogroup/PES-trotter[/url] along with a user guide.
 
-Privat E, Rawat AMS, Ballotta B, Polimeno A, Rampino S, \"PES-trotter: A cross-platform open-source application for the analysis of molecular processes on 3D potential-energy landscapes\", [i]Journal of Computational Chemistry[i] 47, e70397 (2026), DOI: [url]https://doi.org/10.1002/jcc.70397[/url]"
+Privat E, Rawat AMS, Ballotta B, Polimeno A, Rampino S, \"PES-trotter: A cross-platform open-source application for the analysis of molecular processes on 3D potential-energy landscapes\", [i]Journal of Computational Chemistry[/i] 47, e70397 (2026), DOI: [url]https://doi.org/10.1002/jcc.70397[/url]"
 fit_content = true
 
 [node name="LicenseLabel" type="Label" parent="VBoxContainer" unique_id=436071189]

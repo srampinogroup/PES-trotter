@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="PES-trotter"
-config/version="0.12.0"
+config/version="0.12.1"
 run/main_scene="uid://br2m66dhim41b"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/bg_color=Color(0.3019608, 0.49411765, 0.7529412, 1)
