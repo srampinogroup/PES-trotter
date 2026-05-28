@@ -156,7 +156,7 @@ the project depending on if you use the native or web version.
 application. Once you have selected a PES, you can use (4) to load
 it.
 3. Load the selected demo PES. Fast-forward: you can then press Run
-(9) right after the load is finished and go the
+(6) right after the load is finished and go the
 [Exploration](#exploration) section.
 4. Open a PES file from your computer/phone. On the web version this
    is an upload button.
@@ -169,14 +169,14 @@ PES is loaded so if you can click it is safe to do so.
 Depending on the plateform you can either load from disk, load from
 URL, or upload as explained above. In any case, we'll use the demo
 for now on.  With (2) select a demo and click (3) to load it. After a
-few seconds, the Run (9) button should be enabled.  If you want you
+few seconds, the Run (6) button should be enabled.  If you want you
 dive straight into navigation, skip the next section.
 
 Format specifications are detailed in the dedicated document [here](files-specifications.md).
 
 ### PES settings tab
 
-The PES settings tab can be accessed from the top tab bar (2). They
+The PES settings tab can be accessed from the top tab bar (1). They
 are organized in sections.
 
 <p align="center">
