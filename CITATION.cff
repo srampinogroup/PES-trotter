@@ -1,9 +1,5 @@
 cff-version: 1.2.0
-title: 'PES‐trotter: A Cross‐Platform Open‐Source Application for the Analysis of Molecular Processes on 3D Potential‐Energy Landscapes'
-doi: 10.1002/jcc.70397
-url: https://onlinelibrary.wiley.com/doi/abs/10.1002/jcc.70397
-repository-code: https://github.com/srampinogroup/PES-trotter
-date-released: 2026-05-24
+message: "If you use this software, please cite it as below."
 authors:
   - given-names: Erwan
     family-names: Privat
@@ -15,11 +11,28 @@ authors:
     family-names: Polimeno
   - given-names: Sergio
     family-names: Rampino
-type: article
-journal: Journal of Computational Chemistry
-volume: 47
-issue: 14
-pages: e70397
-year: 2026
-abstract: |-
-  We present PES-trotter, a cross-platform application for the exploration and analysis of 3D potential-energy landscapes generated from multi-dimensional potential-energy surfaces (PESs) of molecular systems. Inspired by the main ideas behind the previously released software AVATAR (Martino et al., Journal of Computational Chemistry 41 (2020): 1310–1323) relying on virtual-reality technology and third-party commercial software, PES-trotter is based on the open-source game engine Godot and related open-source assets, and introduces radically new important features for the navigation and topological analysis of the PES, among which the possibility of (1) navigating in walk, fly or free-mouse mode, (2) plotting energy profiles from custom curvilinear paths, (3) computing critical points and minimum-energy paths, and (4) playing back dynamical trajectories in first-person ride or spectator mode. Designed to match high portability and adaptability, PES-trotter can be run either as a stand-alone application on Windows, Linux, Android and macOS operating systems or in the window of a simple web browser on devices as widespread as mobile phones. In the article, the main features of PES-trotter are thoroughly described through two illustrative applications (the conformational analysis of a functionalized glycine and the analysis of classical trajectories for the H + LiH+ \$\$ \to \$\$ H2 + Li+ reactive process) highlighting the versatilty of PES-trotter as an innovative and accessible tool supporting chemical research and education.
+title: 'PES‐trotter: A Cross‐Platform Open‐Source Application for the Analysis of Molecular Processes on 3D Potential‐Energy Landscapes'
+doi: 10.1002/jcc.70397
+date-released: 2026-05-24
+url: https://github.com/srampinogroup/PES-trotter
+preferred-citation:
+  type: article
+  authors:
+    - given-names: Erwan
+      family-names: Privat
+    - given-names: Ajay Mohan Singh
+      family-names: Rawat
+    - given-names: Bernardo
+      family-names: Ballotta
+    - given-names: Antonino
+      family-names: Polimeno
+    - given-names: Sergio
+      family-names: Rampino
+  doi: 10.1002/jcc.70397
+  journal: 'Journal of Computational Chemistry'
+  start: e70397 # First page number
+  end: e70397
+  title: 'PES‐trotter: A Cross‐Platform Open‐Source Application for the Analysis of Molecular Processes on 3D Potential‐Energy Landscapes'
+  issue: 14
+  volume: 47
+  year: 2026
