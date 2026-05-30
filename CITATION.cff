@@ -1,0 +1,83 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: PES-trotter
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Erwan
+    family-names: Privat
+    email: erwan.privat@unipd.it
+    affiliation: >-
+      Dipartimento di Scienze Chimiche, Università degli
+      Studi di Padova, Padova, Italy
+    orcid: 'https://orcid.org/0000-0002-2599-6591'
+  - given-names: Ajay Mohan Singh
+    family-names: Rawat
+    orcid: 'https://orcid.org/0009-0000-9395-8194'
+    affiliation: >-
+      Dipartimento di Scienze Chimiche, Università degli
+      Studi di Padova, Padova, Italy
+  - given-names: Bernardo
+    family-names: Ballotta
+    affiliation: >-
+      School of Physics, Trinity College Dublin, Dublin,
+      Ireland
+    orcid: 'https://orcid.org/0000-0002-1591-9189'
+  - given-names: Antonino
+    family-names: Polimeno
+    affiliation: >-
+      Dipartimento di Scienze Chimiche, Università degli
+      Studi di Padova, Padova, Italy
+    orcid: 'https://orcid.org/0000-0001-6441-3689'
+  - given-names: Sergio
+    family-names: Rampino
+    email: sergio.rampino@unipd.it
+    affiliation: >-
+      Dipartimento di Scienze Chimiche, Università degli
+      Studi di Padova, Padova, Italy
+    orcid: 'https://orcid.org/0000-0001-8525-7777'
+identifiers:
+  - type: doi
+    value: 10.1002/jcc.70397
+repository-code: 'https://github.com/srampinogroup/PES-trotter'
+url: 'https://srampinogroup.github.io/PES-trotter/'
+abstract: >-
+  We present PES-trotter, a cross-platform application for
+  the exploration and analysis of 3D potential-energy
+  landscapes generated from multi-dimensional
+  potential-energy surfaces (PESs) of molecular systems.
+  Inspired by the main ideas behind the previously released
+  software AVATAR (Martino et al., Journal of Computational
+  Chemistry 41 (2020): 1310–1323) relying on virtual-reality
+  technology and third-party commercial software,
+  PES-trotter is based on the open-source game engine Godot
+  and related open-source assets, and introduces radically
+  new important features for the navigation and topological
+  analysis of the PES, among which the possibility of (1)
+  navigating in walk, fly or free-mouse mode, (2) plotting
+  energy profiles from custom curvilinear paths, (3)
+  computing critical points and minimum-energy paths, and
+  (4) playing back dynamical trajectories in first-person
+  ride or spectator mode. Designed to match high portability
+  and adaptability, PES-trotter can be run either as a
+  stand-alone application on Windows, Linux, Android and
+  macOS operating systems or in the window of a simple web
+  browser on devices as widespread as mobile phones. In the
+  article, the main features of PES-trotter are thoroughly
+  described through two illustrative applications (the
+  conformational analysis of a functionalized glycine and
+  the analysis of classical trajectories for the H + LiH+ →
+  H2 + Li+ reactive process) highlighting the versatilty of
+  PES-trotter as an innovative and accessible tool
+  supporting chemical research and education.
+keywords:
+  - chemical education
+  - conformational analysis
+  - minimum energy path
+  - potential energy surface
+  - reaction dynamics
+license: MIT
