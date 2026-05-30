@@ -360,3 +360,23 @@ controls with the virtual joysticks. The only difference is that in walk mode
 you have to double tap your screen to jump, and in fly mode aim for the
 sky/ground and go forward to fly up/down respectively. Every other action
 have a UI touch equivalent in the **actions** menu.
+
+# Cite this software
+
+You can use the following bibtex to cite PES-trotter:
+```bibtex
+@article{https://doi.org/10.1002/jcc.70397,
+author = {Privat, Erwan and Rawat, Ajay Mohan Singh and Ballotta, Bernardo and Polimeno, Antonino and Rampino, Sergio},
+title = {PES-trotter: A Cross-Platform Open-Source Application for the Analysis of Molecular Processes on 3D Potential-Energy Landscapes},
+journal = {Journal of Computational Chemistry},
+volume = {47},
+number = {14},
+pages = {e70397},
+keywords = {chemical education, conformational analysis, minimum energy path, potential energy surface, reaction dynamics},
+doi = {https://doi.org/10.1002/jcc.70397},
+url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/jcc.70397},
+eprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1002/jcc.70397},
+note = {e70397 5824200},
+year = {2026}
+}
+```
