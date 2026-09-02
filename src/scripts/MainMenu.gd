@@ -21,6 +21,13 @@ func console_log(s: String) -> void:
 	print(s)
 
 
+func show_warning(s: String) -> void:
+	var warn := %WarningDialog
+	warn.title = "Warning"
+	warn.dialog_text = s
+	warn.popup_centered()
+
+
 func _ready() -> void:
 	_connect_buttons()
 	
@@ -113,6 +120,13 @@ func _load_pes_async(path: String) -> void:
 	Globals.clear_PESData()
 	_pes_data = null
 	_pes_data = PESData.from_file(path, console_log)
+	
+	if _pes_data == null or not _pes_data.parse_successful:
+		show_warning.call_deferred(
+			"Your .pes file seems to be ill-formed. The application will "
+			+ "continue, but might have unexpected behavior."
+		)
+	
 	_on_pes_loaded.call_deferred(path)
 
 

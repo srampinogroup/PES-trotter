@@ -5,6 +5,7 @@ var size_x: int
 var size_y: int
 var energies: PackedFloat32Array
 var configurations: Array[Array] # Array[Array[AtomPosition]]
+var parse_successful: bool = false
 
 
 class ParsedGridLine:
@@ -47,7 +48,7 @@ static func from_file(path: String, logger: Callable = print) -> PESData:
 		line_number += 1
 		
 		if line_number % (num_atoms + 2) == 1:
-			continue # Skip atom numbers
+			continue # skip atom numbers
 		
 		if line_number % (num_atoms + 2) == 2:
 			gl = ParsedGridLine.from_string(line)
@@ -58,7 +59,14 @@ static func from_file(path: String, logger: Callable = print) -> PESData:
 		pes.add_position(gl.i, gl.j, atom_position)
 		
 		Globals.pes_parse_progressed.emit.call_deferred(file.get_position(), file_len)
-
+	
+	if line_number == (num_atoms + 2) * gl.size_x * gl.size_y + 1:
+		# More sanity checks might be useful here.
+		pes.parse_successful = true
+	else:
+		logger.call("WARNING: your PES file seems to be ill-formed. "
+				  + "The application might have unexpected behavior.")
+	
 	return pes
 
 
@@ -68,7 +76,7 @@ func _init(sx: int, sy: int) -> void:
 	energies.resize(size_x * size_y)
 	energies.fill(0)
 	configurations.resize(size_x * size_y)
-	# configurations.fill([]) # NOTE Same "bug" as in python, all arrays share the same ref
+	# configurations.fill([]) # NOTE Same behavior as in python, all arrays share the same ref
 	for i in range(size_x * size_y):
 		configurations[i] = [].duplicate()
 
