@@ -208,3 +208,7 @@ text = "Load"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=663646061]
 unique_name_in_owner = true
+
+[node name="WarningDialog" type="AcceptDialog" parent="." unique_id=2032411267]
+unique_name_in_owner = true
+oversampling_override = 1.0
