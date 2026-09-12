@@ -365,9 +365,9 @@ have a UI touch equivalent in the **actions** menu.
 
 You can use the following bibtex to cite PES-trotter:
 ```bibtex
-@article{https://doi.org/10.1002/jcc.70397,
+@article{privat2026pestrotter,
 author = {Privat, Erwan and Rawat, Ajay Mohan Singh and Ballotta, Bernardo and Polimeno, Antonino and Rampino, Sergio},
-title = {PES-trotter: A Cross-Platform Open-Source Application for the Analysis of Molecular Processes on 3D Potential-Energy Landscapes},
+title = {{PES-trotter}: A Cross-Platform Open-Source Application for the Analysis of Molecular Processes on 3D Potential-Energy Landscapes},
 journal = {Journal of Computational Chemistry},
 volume = {47},
 number = {14},
