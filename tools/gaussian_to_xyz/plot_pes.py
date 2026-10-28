@@ -24,9 +24,9 @@ def read_pes_from_xyz(path: str) -> pd.DataFrame:
   df = pd.DataFrame()
 
   for i, row in enumerate(buffer):
-    df.at[i, "X"] = float(row[5]) * gs_norm
-    df.at[i, "Y"] = float(row[7]) * gs_norm
-    df.at[i, "Z"] = float(row[9])
+    df.loc[i, "X"] = float(row[5]) * gs_norm
+    df.loc[i, "Y"] = float(row[7]) * gs_norm
+    df.loc[i, "Z"] = float(row[9])
 
   return df
 
