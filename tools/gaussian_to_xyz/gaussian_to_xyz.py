@@ -89,27 +89,11 @@ def parse_geometries(path: str) -> list[Geometry]:
   with open(path, "r", encoding=ENCODING) as f:
     # Exit is in first nested for loop
     while True:
-      last_step_line: str
-      last_energy_line: str
-      found: bool = False
-
-      for line in f:
-        if "Step number" in line:
-          last_step_line = line
-        elif "SCF Done" in line:
-          last_energy_line = line
-
-        if "Stationary point" in line or \
-            "Optimization stopped" in line:
-          found = True
-          break
-      else:
-        return geometries
-
-      assert found, "reached end without finding optimized setup"
-
       found = False
       for line in f:
+        if "Summary" in line:
+          return geometries
+
         if "Standard orientation" in line:
           found = True
           break
@@ -129,6 +113,23 @@ def parse_geometries(path: str) -> list[Geometry]:
         atoms_buffer += [line]
 
       assert found, "reached end but geometry not finished"
+
+      last_step_line: str
+      last_energy_line: str
+      found: bool = False
+
+      for line in f:
+        if "Step number" in line:
+          last_step_line = line
+        elif "SCF Done" in line:
+          last_energy_line = line
+
+        if "Stationary point" in line or \
+            "Optimization stopped" in line:
+          found = True
+          break
+
+      assert found, "reached end without finding optimized setup"
 
       grid_n, grid_i, grid_j = parse_grid(last_step_line)
       energy = parse_energy(last_energy_line)
