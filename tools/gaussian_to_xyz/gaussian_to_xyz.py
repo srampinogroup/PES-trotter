@@ -87,49 +87,59 @@ def parse_geometries(path: str) -> list[Geometry]:
   geometries: list[Geometry] = []
 
   with open(path, "r", encoding=ENCODING) as f:
+    line_number = 0
+
     # Exit is in first nested for loop
     while True:
       found = False
+      last_step_line: str
+      last_energy_line: str
+
       for line in f:
-        if "Summary" in line:
+        line_number += 1
+
+        if "Normal termination" in line:
           return geometries
+
+        if "Step number" in line:
+          last_step_line = line
+        elif "SCF Done" in line:
+          last_energy_line = line
+        elif "Optimization completed" in line or \
+           "Optimization stopped" in line:
+          found = True
+          break
+
+      assert found, \
+        f"reached end without finding geometry (l.{line_number})"
+
+      found = False
+      for line in f:
+        line_number += 1
 
         if "Standard orientation" in line:
           found = True
           break
 
-      assert found, "reached end without finding geometry"
+      assert found, \
+        f"reached end with not geometry after optimization (l.{line_number})"
 
       for _i in range(4):
+        line_number += 1
         next(f)
 
       atoms_buffer = []
       found = False
       for line in f:
+        line_number += 1
         if line[1] == "-":
           found = True
           break
 
         atoms_buffer += [line]
 
-      assert found, "reached end but geometry not finished"
-
-      last_step_line: str
-      last_energy_line: str
-      found: bool = False
-
-      for line in f:
-        if "Step number" in line:
-          last_step_line = line
-        elif "SCF Done" in line:
-          last_energy_line = line
-
-        if "Stationary point" in line or \
-            "Optimization stopped" in line:
-          found = True
-          break
-
-      assert found, "reached end without finding optimized setup"
+      assert found, \
+        f"reached end but geometry not finished (l.{line_number})"
 
       grid_n, grid_i, grid_j = parse_grid(last_step_line)
       energy = parse_energy(last_energy_line)
