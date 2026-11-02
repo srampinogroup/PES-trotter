@@ -57,11 +57,11 @@ found a bug.
    * [Exploration](#exploration)
       + [Navigation](#navigation)
       + [Drawing a trajectory](#drawing-a-trajectory)
-      + [Computing minimum energy path](#computing-minimum-energy-path)
+      + [Computing minimum energy paths](#computing-minimum-energy-paths)
       + [Playback of the trajectory](#playback-of-the-trajectory)
 - [Keyboard and mouse controls](#keyboard-and-mouse-controls)
 - [Alternate controls for touch devices](#alternate-controls-for-touch-devices)
-
+- [Cite this software](#cite-this-software)
 
 # Quick start
 
